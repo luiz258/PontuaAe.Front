@@ -1,1 +1,19 @@
-/* You can add global styles to this file, and also import other style files */
+#menuColor{
+   
+   
+text-align: center;
+background: #9a06ad;
+background: -moz-linear-gradient(60deg, #9a06ad 0%,#f0bb6c 100%);
+background: -webkit-linear-gradient(60deg, #9a06ad 0%,#f0bb6c 100%);
+background: linear-gradient(60deg,#bd076b 0%,#800691 100%);
+}
+html{
+    background:#EFEFEF;
+
+}
+.icon-users{
+    background-image: url("/src/assets/add-user-button(1).svg")
+}
+.autoHeight{
+    height: 100vh;
+}
