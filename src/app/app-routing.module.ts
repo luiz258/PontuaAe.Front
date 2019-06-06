@@ -1,3 +1,5 @@
+import { CadastrarPerfilComponent } from './Page/Account/cadastrar-perfil/cadastrar-perfil.component';
+import { AuthService } from './Service/auth.service';
 import { CadastrarLoginComponent } from './Page/Account/cadastrar-login/cadastrar-login.component';
 import { LoginComponent } from './Page/Account/login/login.component';
 import { PerfilComponent } from './Page/ProgramaFidelidade/perfil/perfil.component';
@@ -15,7 +17,10 @@ import { PontuacaoComponent } from './Page/ProgramaFidelidade/pontuacao/pontuaca
 const appRoutes = [
 
   {
-    path: '', component: MenuComponent, children: [
+    path: '',
+    component: MenuComponent,
+    canActivate:[AuthService],
+    children: [
 
       { path: '', component: CardgroupComponent },
       { path: 'home', component: CardgroupComponent },
@@ -32,8 +37,8 @@ const appRoutes = [
   },
   
   { path: 'login', component: LoginComponent },
-  { path: 'cadastrarlogin', component: CadastrarLoginComponent },
-
+  { path: 'cadastrar', component: CadastrarLoginComponent },
+  { path: 'cadastrarperfil', component: CadastrarPerfilComponent },
 ];
 
 @NgModule({

@@ -1,3 +1,5 @@
+import { HttpClient } from '@angular/common/http';
+import { DataService } from './../../../../Service/Empresa.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -5,10 +7,11 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './regra.component.html'
 })
 export class RegraComponent implements OnInit {
-
-  constructor() { }
+  itensJson: any[];
+  constructor(private dt: DataService, public http: HttpClient ) { }
 
   ngOnInit() {
-  }
+   
 
+ } 
 }

@@ -1,0 +1,128 @@
+<div class="uk-flex-center FundoLogin uk-overflow-auto "uk-grid >
+  <div class="uk-width-1-2@m ">
+    <div class="uk-text-center uk-margin-top uk-margin-small uk-light">
+      <a class=" uk-text-large uk-active uk-link-heading " style="font-family:Cocon">pontua <a
+          style="font-family:Lucida Handwriting"> Aê</a>
+      </a>
+    </div>
+    <!--app-carregar ></app-carregar>-->
+    <!-- [formGroup]= *ngIf="!carregando">-->
+    <div class="uk-card uk-card-default  uk-card-body uk-box-shadow-small uk-border-rounded " >
+    
+
+      <div class="uk-margin">
+        <input class="uk-input uk-form-large" type="texto" formControlName="NomeFantasia"
+          [ngClass]="{'uk-form-danger': (!form.controls.Senha.valid && !form.controls.Senha.pristine)}"
+          placeholder="Nome fantasia">
+      </div>
+
+      <div class="uk-margin">
+        <input class="uk-input uk-form-large" type="text" formControlName="Descricao"
+          [ngClass]="{'uk-form-danger': (!form.controls.Senha.valid && !form.controls.Senha.pristine)}"
+          placeholder="Descrição do negócio">
+      </div>
+
+      <div class="uk-margin">
+        <input class="uk-input uk-form-large" type="text " formControlName="nomeresponsavel"
+          [ngClass]="{'uk-form-danger': (!form.controls.Senha.valid && !form.controls.Senha.pristine)}"
+          placeholder="NomeResponsavel">
+      </div>
+      <div class="uk-margin">
+        <input class="uk-input uk-form-large" type="text" formControlName="email"
+          [ngClass]="{'uk-form-danger': (!form.controls.Senha.valid && !form.controls.Senha.pristine)}"
+          placeholder="Email">
+      </div>
+      <div class="uk-margin">
+        <input class="uk-input uk-form-large" type="text" formControlName="telefone"
+          [ngClass]="{'uk-form-danger': (!form.controls.Senha.valid && !form.controls.Senha.pristine)}"
+          placeholder="Telefone">
+      </div>
+      <div class="uk-margin">
+        <input class="uk-input uk-form-large" type="text" formControlName="documento"
+          [ngClass]="{'uk-form-danger': (!form.controls.Senha.valid && !form.controls.Senha.pristine)}"
+          placeholder="Cnpj">
+      </div>
+      <div class="uk-margin">
+        <input class="uk-input uk-form-large" type="text" formControlName="seguimento"
+          [ngClass]="{'uk-form-danger': (!form.controls.Senha.valid && !form.controls.Senha.pristine)}"
+          placeholder="Seguimento">
+      </div>
+      <div class="uk-margin">
+        <input class="uk-input uk-form-large" type="text" formControlName="horario"
+          [ngClass]="{'uk-form-danger': (!form.controls.Senha.valid && !form.controls.Senha.pristine)}"
+          placeholder="Horario de Fucionamento">
+      </div>
+      <div class="uk-margin">
+        <input class="uk-input uk-form-large" type="text" formControlName="facebook"
+          [ngClass]="{'uk-form-danger': (!form.controls.Senha.valid && !form.controls.Senha.pristine)}"
+          placeholder="Link do Facebook">
+      </div>
+      <div class="uk-margin">
+        <input class="uk-input uk-form-large" type="text" formControlName="website"
+          [ngClass]="{'uk-form-danger': (!form.controls.Senha.valid && !form.controls.Senha.pristine)}"
+          placeholder="Link website">
+      </div>
+      <div class="uk-margin">
+        <input class="uk-input uk-form-large" type="text" formControlName="instagram"
+          [ngClass]="{'uk-form-danger': (!form.controls.Senha.valid && !form.controls.Senha.pristine)}"
+          placeholder="Link Instagram">
+      </div>
+      <div class="uk-margin">
+        <input class="uk-input uk-form-large" type="text" formControlName="delivery"
+          [ngClass]="{'uk-form-danger': (!form.controls.Senha.valid && !form.controls.Senha.pristine)}"
+          placeholder="Link do Delivery">
+      </div>
+      endereço
+      <div class="uk-margin">
+        <input class="uk-input uk-form-large" type="text" formControlName="bairro"
+          [ngClass]="{'uk-form-danger': (!form.controls.Senha.valid && !form.controls.Senha.pristine)}"
+          placeholder="Bairro">
+      </div>
+      <div class="uk-margin">
+        <input class="uk-input uk-form-large" type="text" formControlName="rua"
+          [ngClass]="{'uk-form-danger': (!form.controls.Senha.valid && !form.controls.Senha.pristine)}"
+          placeholder="rua">
+      </div>
+
+      <div class="uk-margin">
+        <input class="uk-input uk-form-large" type="text" formControlName="cep"
+          [ngClass]="{'uk-form-danger': (!form.controls.Senha.valid && !form.controls.Senha.pristine)}"
+          placeholder="Cep">
+      </div>
+      <div class="uk-margin">
+        <input class="uk-input uk-form-large" type="text" formControlName="cidade"
+          [ngClass]="{'uk-form-danger': (!form.controls.Senha.valid && !form.controls.Senha.pristine)}"
+          placeholder="Cidade">
+      </div>
+
+      <div class="uk-margin">
+        <input class="uk-input uk-form-large" type="text" formControlName="estado"
+          [ngClass]="{'uk-form-danger': (!form.controls.Senha.valid && !form.controls.Senha.pristine)}"
+          placeholder="Estado">
+      </div>
+
+      <div class="uk-margin">
+        <input class="uk-input uk-form-large" type="text" formControlName="complemento"
+          [ngClass]="{'uk-form-danger': (!form.controls.Senha.valid && !form.controls.Senha.pristine)}"
+          placeholder="Complemento">
+      </div>  
+
+      <div class="js-upload" uk-form-custom>
+          <input type="file" multiple>
+          <button class="uk-button uk-button-default" type="button" tabindex="-1">Anexar Banner</button>
+      </div>
+
+        <div class="js-upload" uk-form-custom>
+            <input type="file" multiple>
+            <button class="uk-button uk-button-default" type="button" tabindex="-1">Anexar Logo Marca</button>
+        </div>
+
+      <div class="uk-margin uk-text-right">
+        <a class="uk-width-1-1@m uk-button-large uk-button  uk-border-rounded BotaoSucesso">FINALIZAR</a>
+      </div>
+  
+
+    </div>
+
+  </div>
+</div>

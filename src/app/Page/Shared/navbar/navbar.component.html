@@ -7,10 +7,12 @@
     </a>
     <a class=" uk-text-large uk-active uk-link-heading" style="font-family:Cocon">pontua <a style="font-family:Lucida Handwriting"> Aê</a></a>
   </div>
-
-  <div class="uk-navbar-right"> 
+          <!--  --MENU HORIZONTAL--   -->
+  <div class="uk-navbar-right">
+     
     <ul class="uk-navbar-nav">
       <li class="uk-active"><a href="#">Active</a></li>
+      <li class="uk-active"><a href="#">{{ user.email }}</a></li>
       <li class="uk-active">
         <a href="#">Parent</a>
       </li>
@@ -24,7 +26,7 @@
             <li><a href="#">Item</a></li>
             <li><a href="#">Item</a></li>
             <li class="uk-nav-divider"></li>
-            <li><a href="#">Item</a></li>
+            <li><a (click)="Logout()">Sair</a></li>
           </ul>
         </div>
       </li>
@@ -37,8 +39,7 @@
       <h3>Menu</h3>
       <ul class="uk-nav uk-nav-default">
 
-
-        <li><a href="#"><span class="uk-margin-small-right" uk-icon="icon: table"></span> Item</a></li>
+        <li><a href="#"><span class="uk-margin-small-right" uk-icon="icon: table"></span> </a>  </li>
         <li><a href="#"><span class="uk-margin-small-right" uk-icon="icon: thumbnails"></span> Item</a></li>
 
         <li><a href="#"><span class="uk-margin-small-right" uk-icon="icon: trash"></span> Item</a></li>
