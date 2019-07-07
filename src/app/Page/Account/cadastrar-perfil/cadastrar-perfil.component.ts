@@ -1,4 +1,7 @@
+import { LotService } from './../../../../../../../../Users/luizm/dev/Daisy.Front/Daisy-Front/src/app/Service/Lot.Service';
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-cadastrar-perfil',
@@ -7,9 +10,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CadastrarPerfilComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private fb:FormBuilder,
+    private service:LotService,
+    private router: Router,
+  ) { }
 
   ngOnInit() {
+    console.log();
   }
+
 
 }

@@ -10,10 +10,13 @@ background: linear-gradient(60deg,#bd076b 0%,#800691 100%);
     height: 100vh;
 }
 .FundoLogin{
-    height: 100vh;
+   
     background: linear-gradient(60deg,#bd076b 0%,#800691 100%);
 }
 .BotaoSucesso{
     background-color:#3fa845;
     color: white;
+}
+#red{
+    color: #ec2300;
 }

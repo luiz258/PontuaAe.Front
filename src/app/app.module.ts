@@ -27,6 +27,7 @@ import { ConfigProgramaModule } from './Page/ProgramaFidelidade/config-programa/
 import { AutenticacaoService } from './Service/Autenticacao.service';
 import { AuthService } from './Service/auth.service';
 import { CadastrarPerfilComponent } from './Page/Account/cadastrar-perfil/cadastrar-perfil.component';
+import { AddPerfilComponent } from './Page/Account/add-perfil/add-perfil.component';
 
 
 
@@ -47,7 +48,8 @@ export let options: Partial<IConfig> | (() => Partial<IConfig>);
     PerfilComponent,  
     MenuComponent,
     CarregarComponent,
-    CadastrarPerfilComponent
+    CadastrarPerfilComponent,
+    AddPerfilComponent
   ],
   imports: [
     BrowserModule,
