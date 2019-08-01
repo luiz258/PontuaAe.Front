@@ -12,7 +12,7 @@ export class AutenticacaoService{
     constructor(private http : HttpClient){}
 
     public composeHeaders(){
-        const tokem = localStorage.getItem('token');
+        const token = localStorage.getItem('tokenPontuaae');
         const headeers = new HttpHeaders().set('atorização', 'token');
         return headeers;
 

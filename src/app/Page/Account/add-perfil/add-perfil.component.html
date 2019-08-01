@@ -77,9 +77,6 @@
           <input class="uk-input uk-form-large" type="text" formControlName="Cidade" placeholder="Cidade">
         </div>
         <div class="uk-margin">
-          <input class="uk-input uk-form-large" type="text" formControlName="Delivery" placeholder="Link da Delivery">
-        </div>
-        <div class="uk-margin">
           <input class="uk-input uk-form-large" type="text" formControlName="Estado" placeholder="Estado">
         </div>
         <div class="uk-margin">
@@ -91,7 +88,7 @@
                   alt=""></a></li>
 
           </ul>
-          <input type="file" multiple (change)="onSelectedFile($event)"> 
+          <input type="file" multiple (change)="uploadImagem($event)"> 
           <button class="uk-button uk-button-primary uk-border-rounded uk-button-small" type="button"
             tabindex="-1">Alterar imagem</button>
         </div>

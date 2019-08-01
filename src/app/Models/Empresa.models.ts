@@ -11,16 +11,13 @@ export class Empresa{
   public Horario: string;
   public Facebook: string;
   public WebSite: string;
-  public instagram: string;
+  public Instagram: string;
   public Bairro: string;
   public Rua: string;
   public Numero: string;
   public Cep: string;
   public Estado: string;
   public Complemento: string;
-  public Banner: string;
-  public Logo: string;
-  public Reais: number;
-  public PontosFidelidade : number;
-  public ValidadePontos : number;
+  public Logo: ImageData;
+
 }

@@ -3,8 +3,12 @@ import { Empresa } from './../../../Models/Empresa.models';
 import { Router } from '@angular/router';
 import { AutenticacaoService } from 'src/app/Service/Autenticacao.service';
 import { FormGroup, FormBuilder, Validators, FormControl, FormGroupDirective, NgForm, RequiredValidator } from '@angular/forms';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
+import { Security } from 'src/app/Utils/Security-util';
+import { catchError } from 'rxjs/operators';
+import { Observable } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-add-perfil',
@@ -14,20 +18,25 @@ import { ToastrService } from 'ngx-toastr';
 export class AddPerfilComponent implements OnInit {
   public form: FormGroup;
   public carregando= false;
+  public url = "https://localhost:44311/";
   
   constructor(
     private fb: FormBuilder,
     private service: DataService,
     private router: Router,
-    private toastr: ToastrService
+    private toastr: ToastrService,
+    private cd: ChangeDetectorRef,
+    private http: HttpClient,
 
   ) {
     this.form = this.fb.group({
+
+      IdUsuario: [],
+
       NomeFantasia: ['', Validators.compose([
         Validators.minLength(3),
         Validators.maxLength(20),
         Validators.required,
-
       ])],
      
       Descricao: ['', Validators.compose([
@@ -73,12 +82,12 @@ export class AddPerfilComponent implements OnInit {
         Validators.required,
 
       ])],
-      Instagram: ['', Validators.compose([
+      WebSite: ['', Validators.compose([
         Validators.maxLength(60),
         Validators.required,
 
       ])],
-      WebSite: ['', Validators.compose([
+      Instagram: ['', Validators.compose([
         Validators.maxLength(60),
         Validators.required,
 
@@ -124,17 +133,14 @@ export class AddPerfilComponent implements OnInit {
         Validators.required,
 
       ])],
+
       Complemento: ['', Validators.compose([
         Validators.minLength(9),
         Validators.maxLength(9),
         Validators.required,
 
       ])],
-      Logo: ['', Validators.compose([
-        Validators.required,
-
-      ])],
-      
+      Logo: [null, Validators.required],
     }
     )
   }
@@ -143,14 +149,15 @@ export class AddPerfilComponent implements OnInit {
 
   }
 
-  submit() {
+  submit(data: Empresa) {
     this.carregando = true;
+   
     this
       .service
       .CriarPerfil(this.form.value)
       .subscribe(
         (data: any) => {
-          
+         
             this.carregando = false;
             this.toastr.success(data.mensage);
             this.router.navigate(['/login']);
@@ -158,18 +165,39 @@ export class AddPerfilComponent implements OnInit {
         },
         (err) => {
           console.log(err);
-          this.toastr.warning(err.mensage,"Erro nos dados");
+          this.toastr.warning(err.dado,"Erro nos dados");
           this.carregando = false;
         }
       );
   }
 
-  onSelectedFile(event) {
-    if (event.target.files.length) {
-      const file = event.target.files[0];
-      this.form.get('Logo').setValue(file);
-      console.log(file);
-    }
-  }
+ uploadImagem(data: any) : Observable<any> {
+   
+   return this.http.post(`${this.url}v1/empresa/imagem`, data);
+//if (event.target.files.length>0) {
+  //    const Logo = event.target.files[0];
+    //  this.form.get('Logo').setValue(Logo)
+     // console.log(Logo);
+      //return Logo;
+    //}
+  
+//const reader = new FileReader();
+ 
+//if(event.target.files && event.target.files.length) {
+ // const [file] = event.target.files;
+ // reader.readAsDataURL(file);
 
+ // reader.onload = () => {
+  //  this.form.patchValue({
+  //    Logo: reader.result
+  // });
+  
+    // need to run CD since file load runs outside of zone
+  //  this.cd.markForCheck();
+ //}
+//}
+}
+  GetToken(){
+    Security.getToken();
+  }
 }

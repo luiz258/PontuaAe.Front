@@ -3,6 +3,8 @@ import { Injectable } from "@angular/core";
 import { Observable, of, throwError } from 'rxjs';
 import { Empresa } from '../Models/Empresa.models';
 import { catchError, tap, map } from 'rxjs/operators';
+import { elementEnd } from '@angular/core/src/render3';
+import { Security } from '../Utils/Security-util';
 
 
 const httpOptions = {
@@ -16,9 +18,9 @@ const httpOptions = {
 export class DataService {
   constructor(private http: HttpClient) { }
 
-  public data: Empresa[] = [];
+ 
 
-  public url = "https://localhost:3000/";
+  public url = "https://localhost:44311/";
 
   public composeHeaders() {
     const tokem = localStorage.getItem('token');
@@ -28,8 +30,11 @@ export class DataService {
 
   }
   CriarPerfil(data) {
-    console.log(data);
-    return this.http.post(`${this.url}v1/PerfilEmpresa`, data);
+     data.IdUsuario = parseInt(Security.getUser().id);
+  // const elements = JSON.stringify(data);
+  /// console.log(elements);
+  console.log(data);
+  return this.http.post(`${this.url}v1/PerfilEmpresa`, data);
     
   }
 
