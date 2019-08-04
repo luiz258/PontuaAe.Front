@@ -18,7 +18,7 @@ const httpOptions = {
 export class DataService {
   constructor(private http: HttpClient) { }
 
- 
+
 
   public url = "https://localhost:44311/";
 
@@ -30,12 +30,12 @@ export class DataService {
 
   }
   CriarPerfil(data) {
-     data.IdUsuario = parseInt(Security.getUser().id);
+     data.IdUsuario = 1;//parseInt(Security.getUser().id);
   // const elements = JSON.stringify(data);
   /// console.log(elements);
   console.log(data);
   return this.http.post(`${this.url}v1/PerfilEmpresa`, data);
-    
+
   }
 
   GetPerfil() {
@@ -46,7 +46,9 @@ export class DataService {
     return this.http.put(`${this.url}v1/EditarEmpresa`, { headers: this.composeHeaders() } );
   }
 
-
+  uploadImagem(data: any): Observable<any>{
+    return this.http.post(`${this.url}v1/empresa/imagem`, data);
+  }
 
 
 }

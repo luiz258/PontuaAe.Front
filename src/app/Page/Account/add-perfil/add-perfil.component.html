@@ -9,14 +9,14 @@
       <div class="uk-card uk-card-default  uk-card-body  uk-border-rounded">
         <a><span uk-icon="icon:arrow-left" class=""></span> Voltar</a>
         <h3 class="uk-card-title uk-position-top-center">Finalalizar Cadastro</h3>
-        
+
         <div class="uk-margin">
-          <input class="uk-input uk-form-large" type="text" formControlName="NomeFantasia" 
+          <input class="uk-input uk-form-large" type="text" formControlName="NomeFantasia"
           [ngClass]="{'uk-form-danger': (!form.controls.NomeFantasia.valid && !form.controls.NomeFantasia.pristine) }"
           placeholder="NomeFantasia">
         </div>
         <div class="uk-margin">
-          <input class="uk-input uk-form-large" type="text" formControlName="Descricao" 
+          <input class="uk-input uk-form-large" type="text" formControlName="Descricao"
           [ngClass]="{'uk-form-danger': (!form.controls.Descricao.valid && !form.controls.Descricao.pristine) }"
           placeholder="Descricao">
         </div>
@@ -31,15 +31,15 @@
             placeholder="Email">
         </div>
         <div class="uk-margin">
-          <input class="uk-input uk-form-large" type="text" formControlName="Telefone" 
+          <input class="uk-input uk-form-large" type="text" formControlName="Telefone"
           [ngClass]="{'uk-form-danger': (!form.controls.Telefone.valid && !form.controls.Telefone.pristine) }" placeholder="Telefone">
         </div>
         <div class="uk-margin">
-          <input class="uk-input uk-form-large" type="text" formControlName="Documento" 
+          <input class="uk-input uk-form-large" type="text" formControlName="Documento"
           [ngClass]="{'uk-form-danger': (!form.controls.Documento.valid && !form.controls.Documento.pristine) }" placeholder="Cnpj">
         </div>
         <div class="uk-margin">
-          <input class="uk-input uk-form-large" type="text" formControlName="Seguimento" 
+          <input class="uk-input uk-form-large" type="text" formControlName="Seguimento"
           [ngClass]="{'uk-form-danger': (!form.controls.Seguimento.valid && !form.controls.Seguimento.pristine) }"
           placeholder="Seguimentos">
         </div>
@@ -82,17 +82,20 @@
         <div class="uk-margin">
           <input class="uk-input uk-form-large" type="text" formControlName="Complemento" placeholder="Complemento">
         </div>
+        <!--<ul class="uk-thumbnav" uk-margin>
+            <img class="uk-border-circle" src= "assets/img/sualogo.png" width="70" height="70" alt="">
+           </ul>-->
+
+
         <div class="js-upload uk-align-center" uk-form-custom>
-          <ul class="uk-thumbnav" uk-margin>
-            <li class="uk-active"><a href="#"><img class="uk-border-circle" src="https://placehold.it/70" width="100"
-                  alt=""></a></li>
+          <input type="file" (change)="onUploadImagem($event)" multiple>
+          <button class="uk-button uk-button-primary uk-button-small  uk-margin-small-right  uk-margin-small-   uk-border-rounded"  type="button" tabindex="-1" >Anexa Logo Marca</button>
 
-          </ul>
-          <input type="file" multiple (change)="uploadImagem($event)"> 
-          <button class="uk-button uk-button-primary uk-border-rounded uk-button-small" type="button"
-            tabindex="-1">Alterar imagem</button>
         </div>
-
+        <!--
+        <div class= "uk-column-1-4">
+          <span class="upload" *ngIf="message">{{message}}</span>
+        </div>-->
 
         <div class="uk-margin uk-text-right">
           <a class="uk-width-1-1@m uk-button-large uk-button  uk-border-rounded BotaoSucesso" (click)="submit()">Salvar</a>
