@@ -20,7 +20,7 @@ const appRoutes = [
   {
     path: '',
     component: MenuComponent,
-    canActivate:[AuthService],
+    //canActivate:[AuthService],
     children: [
 
       { path: '', component: CardgroupComponent },
@@ -34,10 +34,10 @@ const appRoutes = [
           { path: 'regra/:id', component: RegraComponent },
           { path: 'premios/:id', component: PremiosComponent },]
       },
-      
+
     ]
   },
-  
+
   { path: 'login', component: LoginComponent },
   { path: 'cadastrar', component: CadastrarLoginComponent },
   { path: 'cad', component: CadastrarPerfilComponent },

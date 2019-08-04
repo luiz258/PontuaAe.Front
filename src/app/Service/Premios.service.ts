@@ -7,10 +7,21 @@ import { rootRenderNodes } from '@angular/core/src/view';
 @Injectable()
 
 export class PremiosService{
-    
+
+  public url = '';
+
     constructor(private http:HttpClient){}
 
-    GetPremios()  {
-        return this.http.get<any[]>("http://localhost:3000/Premios");
-       }
+    public composeHeaders() {
+      const token = localStorage.getItem('petshop.token');
+      const headers = new HttpHeaders().set('Authorization', `bearer ${token}`);
+      return headers;
+  }
+
+
+
+  updatePro(data) {
+    return this.http.put(`${this.url}/v1/Config/edit`, data, { headers: this.composeHeaders() });
+}
+
 }

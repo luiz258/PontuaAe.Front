@@ -11,12 +11,12 @@ import { Observable } from 'rxjs';
 })
 export class PremiosComponent implements OnInit {
   public premio$: Observable<any[]>;
- 
+
  public permios: Premios[] = [];
   constructor(public service:PremiosService) { }
 
   ngOnInit() {
-    this.premio$ = this.service.GetPremios();
+    //this.premio$ = this.service.GetPremios();
 }
 
 }
