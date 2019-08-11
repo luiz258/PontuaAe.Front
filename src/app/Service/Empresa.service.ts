@@ -30,7 +30,7 @@ export class DataService {
 
   }
   CriarPerfil(data) {
-     data.IdUsuario = 1;//parseInt(Security.getUser().id);
+     data.IdUsuario = parseInt(Security.getUser().id);
   // const elements = JSON.stringify(data);
   /// console.log(elements);
   console.log(data);
@@ -49,7 +49,4 @@ export class DataService {
   uploadImagem(data: any): Observable<any>{
     return this.http.post(`${this.url}v1/empresa/imagem`, data);
   }
-
-
 }
-

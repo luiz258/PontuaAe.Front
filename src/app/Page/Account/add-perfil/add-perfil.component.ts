@@ -17,13 +17,15 @@ import { HttpClient, HttpEventType } from '@angular/common/http';
 })
 export class AddPerfilComponent implements OnInit {
   public form: FormGroup;
-  public carregando= false;
+  public carregando = false;
   public url = "https://localhost:44311/";
+  public empresa: Empresa;
 
   public message: string;
   public selectedFile: File = null;
   @Output() public onUploadFinished = new EventEmitter();
 
+ 
   constructor(
     private fb: FormBuilder,
     private service: DataService,
@@ -37,10 +39,10 @@ export class AddPerfilComponent implements OnInit {
 
     this.form = this.fb.group({
 
-      IdUsuario: [],
 
-
-
+      IdUsuario: ['', Validators.compose([
+        Validators.required,
+      ])],
       NomeFantasia: ['', Validators.compose([
         Validators.minLength(3),
         Validators.maxLength(20),
@@ -48,14 +50,15 @@ export class AddPerfilComponent implements OnInit {
       ])],
 
       Descricao: ['', Validators.compose([
-        Validators.minLength(6),
-        Validators.maxLength(20),
         Validators.required,
+        Validators.minLength(6),
+        Validators.maxLength(30),
+
 
       ])],
       NomeResponsavel: ['', Validators.compose([
         Validators.minLength(3),
-        Validators.maxLength(20),
+        Validators.maxLength(35),
         Validators.required,
 
       ])],
@@ -65,11 +68,13 @@ export class AddPerfilComponent implements OnInit {
       ])],
       Telefone: ['', Validators.compose([
         Validators.maxLength(14),
+        Validators.minLength(13),
         Validators.required,
 
       ])],
       Documento: ['', Validators.compose([
         Validators.maxLength(18),
+        Validators.minLength(18),
         Validators.required,
 
       ])],
@@ -118,8 +123,8 @@ export class AddPerfilComponent implements OnInit {
 
       ])],
       Numero: ['', Validators.compose([
-        Validators.minLength(3),
-        Validators.maxLength(20),
+        Validators.minLength(1),
+        Validators.maxLength(9),
         Validators.required,
 
       ])],
@@ -130,33 +135,29 @@ export class AddPerfilComponent implements OnInit {
 
       ])],
       Cidade: ['', Validators.compose([
-        Validators.minLength(3),
-        Validators.maxLength(25),
         Validators.required,
 
       ])],
       Estado: ['', Validators.compose([
-        Validators.minLength(9),
-        Validators.maxLength(9),
+        Validators.minLength(2),
+        Validators.maxLength(20),
         Validators.required,
 
       ])],
 
       Complemento: ['', Validators.compose([
         Validators.minLength(9),
-        Validators.maxLength(9),
+        Validators.maxLength(20),
         Validators.required,
 
       ])],
-      Logo: [null, Validators.required],
+      event: ['', Validators.nullValidator],
     }
     )
   }
 
   ngOnInit() {
-
   }
-
 
   submit() {
     this.carregando = true;
@@ -167,63 +168,47 @@ export class AddPerfilComponent implements OnInit {
       .subscribe(
         (data: any) => {
 
-            this.carregando = false;
-            this.toastr.success(data.mensage);
-            this.router.navigate(['/login']);
+          this.carregando = false;
+          this.toastr.success(data.data.mensage);
+          this.router.navigate(['/login']);
 
         },
         (err) => {
           console.log(err);
-          this.toastr.warning(err.dado,"Erro nos dados");
+          this.toastr.warning(err.data.mensage, "Erro nos dados");
           this.carregando = false;
         }
       );
   }
 
-  onUploadImagem(event){
+  onUploadImagem(event) {
     this.selectedFile = <File>event.target.files[0];
     const formData = new FormData();
-    formData.append('image', this.selectedFile)
+    formData.append('image', this.selectedFile);
     this.service.uploadImagem(formData)
-    .subscribe( event =>{
-       if (event.event === HttpEventType.Response){
-         this.message = 'Upload OK'
-       }
-      });
+
+      .subscribe(
+        (event) => {
+          this.toastr.success("Salvo com sucesso");
+          let a =this.form.setValue(event, this.form.value.Logo )
+          console.log(a);
+       
+         
+        },
+        (err) => {
+          console.log(err);
+          this.toastr.warning("Erro nos dados", err.data.mensage);
+          this.carregando = false;
+
+
+        });
 
   }
 
 
 
-  //Não estou usando este codigo abaixo,
- uploadImagem(data: any) : Observable<any> {
 
-  return this.http.post(`${this.url}v1/empresa/imagem`, data);
-
-//if (event.target.files.length>0) {
-  //    const Logo = event.target.files[0];
-    //  this.form.get('Logo').setValue(Logo)
-     // console.log(Logo);
-      //return Logo;
-    //}
-
-//const reader = new FileReader();
-
-//if(event.target.files && event.target.files.length) {
- // const [file] = event.target.files;
- // reader.readAsDataURL(file);
-
- // reader.onload = () => {
-  //  this.form.patchValue({
-  //    Logo: reader.result
-  // });
-
-    // need to run CD since file load runs outside of zone
-  //  this.cd.markForCheck();
- //}
-//}
-}
-  GetToken(){
+  GetToken() {
     Security.getToken();
   }
 }

@@ -18,6 +18,6 @@ export class Empresa{
   public Cep: string;
   public Estado: string;
   public Complemento: string;
-  public Logo: ImageData;
+  public Logo: any;
 
 }

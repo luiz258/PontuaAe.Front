@@ -5,6 +5,7 @@ import { AutenticacaoService } from './../../../Service/Autenticacao.service';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators , FormControl} from '@angular/forms';
 import { Injectable } from '@angular/core';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-login',
@@ -21,7 +22,8 @@ export class LoginComponent implements OnInit {
   constructor(
     private router: Router,
     private service: AutenticacaoService,
-    private fb: FormBuilder
+    private fb: FormBuilder, 
+    private toastr: ToastrService,
   ) {
     this.form = this.fb.group({
       Email: ['', Validators.compose([
@@ -57,12 +59,12 @@ export class LoginComponent implements OnInit {
         (data: any) => {
           this.carregando = false;
           this.setUser( data.users, data.token);
-          
+          this.toastr.success(data.mensage);
         },
         (err) => {
           this.carregando =false;
           console.log(err);
-          
+          this.toastr.warning(err.data, "erro ao logar");
         }
       );
   }
@@ -70,5 +72,10 @@ export class LoginComponent implements OnInit {
   setUser(user,token){
     Security.set(user, token);
     this.router.navigate(['/']);
+  }
+
+  setCadatrarPerfil(validade){
+    
+    this.router.navigate(['/addPerfil']);
   }
 }

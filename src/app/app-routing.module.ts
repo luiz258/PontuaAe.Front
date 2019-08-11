@@ -20,7 +20,7 @@ const appRoutes = [
   {
     path: '',
     component: MenuComponent,
-    //canActivate:[AuthService],
+    canActivate:[AuthService],
     children: [
 
       { path: '', component: CardgroupComponent },

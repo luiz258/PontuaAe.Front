@@ -20,3 +20,9 @@ background: linear-gradient(60deg,#bd076b 0%,#800691 100%);
 #red{
     color: #ec2300;
 }
+#upload{
+    font-weight:bold;
+    color:#28a745;
+    margin-left: 15px;
+    line-height: 36px;
+}
