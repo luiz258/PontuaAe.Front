@@ -1,5 +1,4 @@
-import { AddPerfilComponent } from './Page/Account/add-perfil/add-perfil.component';
-import { CadastrarPerfilComponent } from './Page/Account/cadastrar-perfil/cadastrar-perfil.component';
+
 import { AuthService } from './Service/auth.service';
 import { CadastrarLoginComponent } from './Page/Account/cadastrar-login/cadastrar-login.component';
 import { LoginComponent } from './Page/Account/login/login.component';
@@ -40,8 +39,7 @@ const appRoutes = [
 
   { path: 'login', component: LoginComponent },
   { path: 'cadastrar', component: CadastrarLoginComponent },
-  { path: 'cad', component: CadastrarPerfilComponent },
-  { path: 'addPerfil', component: AddPerfilComponent },
+  
 ];
 
 @NgModule({

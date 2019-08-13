@@ -23,30 +23,30 @@ export class DataService {
   public url = "https://localhost:44311/";
 
   public composeHeaders() {
-    const tokem = localStorage.getItem('token');
-    const headeers = new HttpHeaders().set('atorização', 'token');
+    const tokem = localStorage.getItem('tokenPontuaae');
+    const headeers = new HttpHeaders().set('Authorization', `bearer ${tokem}`);
 
     return headeers;
 
   }
   CriarPerfil(data) {
-     data.IdUsuario = parseInt(Security.getUser().id);
-  // const elements = JSON.stringify(data);
-  /// console.log(elements);
-  console.log(data);
-  return this.http.post(`${this.url}v1/PerfilEmpresa`, data);
+    data.IdUsuario = parseInt(Security.getUser().id);
+    console.log(data);
+    return this.http.post(`${this.url}v1/PerfilEmpresa`, data);
 
   }
 
-  GetPerfil() {
-    return this.http.get<any[]>(`${this.url}v1/Premios`,  { headers: this.composeHeaders() });
+  GetPerfil(id: Number)  {
+  
+    
+    return this.http.get<any[]>(`${this.url}v1/DetalheEmpresa/${id}`, { headers: this.composeHeaders() });
   }
 
-  UpdatePerfil(){
-    return this.http.put(`${this.url}v1/EditarEmpresa`, { headers: this.composeHeaders() } );
+  UpdatePerfil(data) {
+    return this.http.put(`${this.url}v1/EditarEmpresa`, data, { headers: this.composeHeaders() });
   }
 
-  uploadImagem(data: any): Observable<any>{
+  uploadImagem(data: any): Observable<any> {
     return this.http.post(`${this.url}v1/empresa/imagem`, data);
   }
 }
