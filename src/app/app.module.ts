@@ -26,6 +26,8 @@ import { ConfigProgramaModule } from './Page/ProgramaFidelidade/config-programa/
 
 import { AutenticacaoService } from './Service/Autenticacao.service';
 import { AuthService } from './Service/auth.service';
+import { PontuarComponent } from './Page/ProgramaFidelidade/pontuacao/pontuar/pontuar.component';
+import { RegatarComponent } from './Page/ProgramaFidelidade/pontuacao/regatar/regatar.component';
 
 
 
@@ -47,6 +49,8 @@ export let options: Partial<IConfig> | (() => Partial<IConfig>);
     PerfilComponent,  
     MenuComponent,
     CarregarComponent,
+    PontuarComponent,
+    RegatarComponent,
   ],
   imports: [
     BrowserModule,
