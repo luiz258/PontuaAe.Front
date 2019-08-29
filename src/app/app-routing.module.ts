@@ -12,6 +12,9 @@ import { CardgroupComponent } from './Page/Home/cardgroup/cardgroup.component';
 import { RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
 import { PontuacaoComponent } from './Page/ProgramaFidelidade/pontuacao/pontuacao.component';
+import { LoginClienteComponent } from './Page/AccountCliente/login-cliente/login-cliente.component';
+import { CadastrarClienteComponent } from './Page/AccountCliente/cadastrar-cliente/cadastrar-cliente.component';
+import { ListarEmpresasComponent } from './Page/Home/listar-empresas/listar-empresas.component';
 
 
 const appRoutes = [
@@ -24,6 +27,7 @@ const appRoutes = [
 
       { path: '', component: CardgroupComponent },
       { path: 'home', component: CardgroupComponent },
+      { path: 'cliente', component: ListarEmpresasComponent },
       { path: 'preCadastro', component: PreCadatroComponent },
       { path: 'perfil', component: PerfilComponent },
       { path: 'pontuacao', component: PontuacaoComponent },
@@ -37,9 +41,12 @@ const appRoutes = [
     ]
   },
 
+
   { path: 'login', component: LoginComponent },
+  { path: 'loginCliente', component: LoginClienteComponent },
   { path: 'cadastrar', component: CadastrarLoginComponent },
-  
+  { path: 'cadastrarCliente', component: CadastrarClienteComponent },
+ 
 ];
 
 @NgModule({

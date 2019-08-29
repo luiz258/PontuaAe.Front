@@ -3,7 +3,6 @@ import { Injectable } from "@angular/core";
 import { Observable, of, throwError } from 'rxjs';
 import { Empresa } from '../Models/Empresa.models';
 import { catchError, tap, map } from 'rxjs/operators';
-import { elementEnd } from '@angular/core/src/render3';
 import { Security } from '../Utils/Security-util';
 
 
@@ -48,5 +47,12 @@ export class DataService {
 
   uploadImagem(data: any): Observable<any> {
     return this.http.post(`${this.url}v1/empresa/imagem`, data);
+  }
+
+  listarEmpresas(){
+    return this.http.get<Empresa[]>(`${this.url}v1/ListarEmpresas`)
+    .pipe(
+      tap(console.log)
+    )
   }
 }

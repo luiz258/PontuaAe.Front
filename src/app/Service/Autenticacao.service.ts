@@ -21,6 +21,10 @@ export class AutenticacaoService{
     Autenticar(data){
         return this.http.post(`${this.url}v1/login`, data); 
     }
+
+    AutenticarCliente(data){
+        return this.http.post(`${this.url}v1/loginCliente`, data); 
+    }
     
     getCadastro(data){
         return this.http.post(`${this.url}v1/NewUsuario`,data);

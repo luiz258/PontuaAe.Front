@@ -1,25 +1,21 @@
-import { users } from './../../../Models/Users.model';
-import { Security } from '../../../Utils/Security-util';
+import { Component, OnInit } from '@angular/core';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { AutenticacaoService } from './../../../Service/Autenticacao.service';
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import { FormGroup, FormBuilder, Validators , FormControl} from '@angular/forms';
-import { Injectable } from '@angular/core';
+import { AutenticacaoService } from 'src/app/Service/Autenticacao.service';
 import { ToastrService } from 'ngx-toastr';
-import { NavComponent } from "../../../Page/Shared/nav/nav.component";
-@Component({
-  selector: 'app-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css'],
+import { Security } from 'src/app/Utils/Security-util';
 
+@Component({
+  selector: 'app-login-cliente',
+  templateUrl: './login-cliente.component.html',
+  styleUrls: ['./login-cliente.component.css']
 })
-export class LoginComponent implements OnInit {
+export class LoginClienteComponent implements OnInit {
   public form:FormGroup;
   public carregando= false;
   public customPatterns = {'0': { pattern: new RegExp('\[a-zA-Z\]')}};
 
-  @Output() buttonClick = new EventEmitter()
-  enable:boolean = false;
+  
   constructor(
     private router: Router,
     private service: AutenticacaoService,
@@ -38,12 +34,6 @@ export class LoginComponent implements OnInit {
     });
    }
 
-   displayBanner(){
-    this.enable = this.enable == false ? true : false;
-    this.buttonClick.emit(this.enable);
-  }
-
-  
   ngOnInit() { 
     const token = localStorage.getItem('tokenPontuaae')
     
@@ -61,7 +51,7 @@ export class LoginComponent implements OnInit {
     this.carregando= true;
     this
       .service
-      .Autenticar(this.form.value)
+      .AutenticarCliente(this.form.value)
       .subscribe(
         (data: any) => {
           this.carregando = false;
@@ -78,7 +68,7 @@ export class LoginComponent implements OnInit {
 
   setUser(user,token){
     Security.set(user, token);
-    this.router.navigate(['/']);
+    this.router.navigate(['/cliente']);
   }
 
   setCadatrarPerfil(validade){

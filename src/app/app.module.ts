@@ -28,6 +28,10 @@ import { AutenticacaoService } from './Service/Autenticacao.service';
 import { AuthService } from './Service/auth.service';
 import { PontuarComponent } from './Page/ProgramaFidelidade/pontuacao/pontuar/pontuar.component';
 import { RegatarComponent } from './Page/ProgramaFidelidade/pontuacao/regatar/regatar.component';
+import { LoginClienteComponent } from './Page/AccountCliente/login-cliente/login-cliente.component';
+import { CadastrarClienteComponent } from './Page/AccountCliente/cadastrar-cliente/cadastrar-cliente.component';
+import { ClienteService } from './Service/Cliente.service';
+import { ListarEmpresasComponent } from './Page/Home/listar-empresas/listar-empresas.component';
 
 
 
@@ -51,6 +55,9 @@ export let options: Partial<IConfig> | (() => Partial<IConfig>);
     CarregarComponent,
     PontuarComponent,
     RegatarComponent,
+    LoginClienteComponent,
+    CadastrarClienteComponent,
+    ListarEmpresasComponent,
   ],
   imports: [
     BrowserModule,
@@ -63,7 +70,7 @@ export let options: Partial<IConfig> | (() => Partial<IConfig>);
     NgxMaskModule.forRoot(options) 
 ],
   exports:[],
-  providers: [AutenticacaoService, AuthService],
+  providers: [AutenticacaoService, AuthService, ClienteService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

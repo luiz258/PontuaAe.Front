@@ -29,7 +29,8 @@ export class Security{
             return null;
         }
     }
-
+    
+  
 
     public static getToken(): string {
         const data = localStorage.getItem('tokenPontuaae');
