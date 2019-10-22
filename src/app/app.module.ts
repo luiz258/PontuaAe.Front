@@ -15,7 +15,7 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './Page/Account/login/login.component';
 import { CadastrarLoginComponent } from './Page/Account/cadastrar-login/cadastrar-login.component';
 import { PontuacaoComponent } from './Page/ProgramaFidelidade/pontuacao/pontuacao.component';
-import { PerfilComponent } from './Page/ProgramaFidelidade/perfil/perfil.component';
+import { PerfilComponent } from './Page/Account/perfil/perfil.component';
 import { MenuComponent } from './Page/Shared/Menu.component';
 import { ConfigProgramaComponent } from './Page/ProgramaFidelidade/config-programa/config-programa.component';
 import { PreCadatroComponent } from './Page/ProgramaFidelidade/pre-cadatro/pre-cadatro.component';
