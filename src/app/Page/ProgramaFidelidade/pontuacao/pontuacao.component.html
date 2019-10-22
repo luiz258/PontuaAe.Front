@@ -1,21 +1,35 @@
 <div class="uk-container uk-margin-top">
-
   <div class="uk-card uk-card-default uk-card-body uk-width-1-1@m">
-
-    <h4 class="uk-card-title-small"> <a uk-icon="icon:chevron-double-left; ratio:1.3" onClick="history.go(-1)"></a>
+    <h4 class="uk-card-title-small">
+      <a
+        uk-icon="icon:chevron-double-left; ratio:1.3"
+        onClick="history.go(-1)"
+      ></a>
       Pontuação
     </h4>
     <div class="uk-child-width-1-2@s uk-grid-small " uk-grid>
-      
       <app-pontuar></app-pontuar>
       <app-resgatar></app-resgatar>
-
-      
     </div>
-
-    <div class="uk-grid-match uk-grid-small uk-text-center" uk-grid>
-      <div class="uk-width-auto@m uk-visible@l">
-          <div class="uk-card uk-card-primary uk-card-body">auto@m<br>visible@l</div>
-      </div>
+    <div>
+      <table class="uk-table uk-table-striped " *ngFor="let premio of premios">
+        <thead>
+          <tr>
+            <th>Código</th>
+            <th>Nome</th>
+            <th>Quantidade</th>
+            <th>Pontos Necessesario</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>{{ premio.id }}</td>
+            <td>{{ premio.descricao }}</td>
+            <td>{{ premio.quantidade }}</td>
+            <td>{{ premio.pontosNecessario }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
   </div>
 </div>

@@ -1,6 +1,6 @@
 import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
-import { users } from 'src/app/Models/Users.model';
+import { Users } from 'src/app/Models/Users.model';
 import { Security } from 'src/app/Utils/Security-util';
 
 @Component({
@@ -9,7 +9,7 @@ import { Security } from 'src/app/Utils/Security-util';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
-  public user: users;
+  public user: Users;
 
   constructor(private router: Router) {
 
@@ -18,12 +18,12 @@ export class NavbarComponent implements OnInit {
     this.user = Security.getUser();
   }
 
-  Logout(){
+  Logout() {
     Security.clear();
     this.router.navigate(['/login']);
   }
 
-  LogoutCliente(){
+  LogoutCliente() {
     Security.clear();
     this.router.navigate(['/logincliente']);
   }

@@ -1,5 +1,5 @@
-export class Empresa{
-    
+
+export class Empresa {
   public IdUsuario: number;
   public NomeFantasia: string;
   public Descricacao: string;
@@ -19,5 +19,4 @@ export class Empresa{
   public Estado: string;
   public Complemento: string;
   public Logo: any;
-
 }

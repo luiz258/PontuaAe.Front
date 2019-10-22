@@ -3,18 +3,21 @@ import { Router, CanActivate } from '@angular/router';
 import { Security } from '../Utils/Security-util';
 
 @Injectable()
-export class AuthService implements CanActivate{
-    constructor(private router:Router){
+export class AuthService implements CanActivate {
+    constructor(private router: Router) {
 
     }
 
-    canActivate(){
+    canActivate() {
         const token = Security.getToken();
-        if(!token){
+        if (!token) {
             this.router.navigate(['/login']);
             return false;
         }
 
         return true;
     }
+
+
+
 }

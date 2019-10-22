@@ -1,34 +1,36 @@
-#menuColor{
-    
-text-align: center;
-background: #9a06ad;
-background: -moz-linear-gradient(60deg,#bd076b 0%,#800691 100%);
-background: -webkit-linear-gradient(60deg,#bd076b 0%,#800691 100%);
-background: linear-gradient(60deg,#bd076b 0%,#800691 100%);
+#menuColor {
+  text-align: center;
+  background: #9a06ad;
+  background: -moz-linear-gradient(60deg, #bd076b 0%, #800691 100%);
+  background: -webkit-linear-gradient(60deg, #bd076b 0%, #800691 100%);
+  background: linear-gradient(60deg, #bd076b 0%, #800691 100%);
 }
-.autoHeight{
-    height: 100vh;
+.autoHeight {
+  height: 100vh;
 }
-.FundoLogin{
-   
-    background: linear-gradient(60deg,#d6085e  25%,#800691 100%);
+.FundoLogin {
+  background: linear-gradient(60deg, #d6085e 25%, #800691 100%);
+}
+.BotaoSucesso {
+  background-color: #3fa845;
+  color: white;
+}
+#red {
+  color: #ec2300;
+}
+#upload {
+  font-weight: bold;
+  color: #28a745;
+  margin-left: 15px;
+  line-height: 36px;
+}
+.embacado::after {
+  filter: blur(2px);
+}
 
-
-    
-}
-.BotaoSucesso{
-    background-color:#3fa845;
-    color: white;
-}
-#red{
-    color: #ec2300;
-}
-#upload{
-    font-weight:bold;
-    color:#28a745;
-    margin-left: 15px;
-    line-height: 36px;
-}
-.embacado::after{
-    filter: blur(2px);
+.quebraLinha {
+  display: inline-block;
+  white-space: nowrap;
+  overflow: hidden !important;
+  text-overflow: ellipsis;
 }

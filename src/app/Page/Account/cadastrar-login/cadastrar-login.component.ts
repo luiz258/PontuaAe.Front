@@ -1,4 +1,4 @@
-import { Component, OnInit, ChangeDetectorRef, EventEmitter, Output, Injectable } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef, EventEmitter, Injectable, Output, Input, NgZone } from '@angular/core';
 import { AutenticacaoService } from 'src/app/Service/Autenticacao.service';
 import { FormGroup, FormBuilder, Validators, FormControl, FormGroupDirective, NgForm } from '@angular/forms';
 import { Route, Router } from '@angular/router';
@@ -6,6 +6,8 @@ import { ToastrService } from 'ngx-toastr';
 import { Security } from 'src/app/Utils/Security-util';
 import { HttpClient } from '@angular/common/http';
 import { DataService } from 'src/app/Service/Empresa.service';
+import { FileUploader, FileUploaderOptions, ParsedResponseHeaders } from 'ng2-file-upload';
+import { Cloudinary } from '@cloudinary/angular-5.x';
 
 
 @Component({
@@ -16,12 +18,20 @@ import { DataService } from 'src/app/Service/Empresa.service';
 })
 export class CadastrarLoginComponent implements OnInit {
 
+  @Input()
+  responses: Array<any>;
+
+  private hasBaseDropZoneOver = false;
+  private uploader: FileUploader;
+  private title: string;
+
   public form: FormGroup;
   public carregando = false;
-  public url = "https://localhost:44311/";
-
+  public url = 'https://localhost:44311/';
   public message: string;
   public selectedFile: File = null;
+
+  // tslint:disable-next-line: no-output-on-prefix
   @Output() public onUploadFinished = new EventEmitter();
 
 
@@ -35,6 +45,8 @@ export class CadastrarLoginComponent implements OnInit {
     private http: HttpClient,
 
   ) {
+
+
 
     this.form = this.fb.group({
       Senha: ['', Validators.compose([
@@ -143,12 +155,19 @@ export class CadastrarLoginComponent implements OnInit {
 
       ])],
       Logo: ['', Validators.length],
-    }
-    )
+
+    });
+
   }
 
   ngOnInit() {
+
   }
+
+  updateTitle(value: string) {
+    this.title = value;
+  }
+
 
   GetToken() {
     Security.getToken();
@@ -161,6 +180,7 @@ export class CadastrarLoginComponent implements OnInit {
       .createUser(this.form.value)
       .subscribe(
         (data: any) => {
+          console.log(this.form.value);
           this.carregando = false;
           this.toastr.info(data.mensage);
           this.router.navigate(['/login']);
@@ -170,25 +190,32 @@ export class CadastrarLoginComponent implements OnInit {
           this.carregando = false;
           this.toastr.warning(err.mensage);
           this.router.navigate(['/login']);
-
+          console.log(this.form.value);
         }
       );
   }
 
   onUploadImagem(event: any) {
-    this.selectedFile = <File>event.target.files[0];
+    this.selectedFile = event.target.files[0];
     const formData = new FormData();
-    formData.append('Logo', this.selectedFile.name)
+    formData.append('Logo', this.selectedFile);
     this.EmpService.uploadImagem(formData)
       .subscribe(
+        // tslint:disable-next-line: no-shadowed-variable
         (event) => {
-          this.toastr.success("Salvo com sucesso");
+          this.toastr.success(event.successo, 'Salvo com sucesso');
+          formData.append('Logo', event.data.name);
+
+          this.form.value.Logo = event.data.name;
+          console.log(this.form.value.Logo);
         },
         (err) => {
           this.carregando = false;
-          this.toastr.warning(err.dado, "Erro nos dados");
+          this.toastr.warning(err.dado, 'Erro nos dados');
 
         });
+
+
 
   }
 

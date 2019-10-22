@@ -1,36 +1,36 @@
-import { users } from './../Models/Users.model';
+import { Users } from './../Models/Users.model';
 
-export class Security{
-    public static set(user: users, token: string) {
+export class Security {
+    public static set(user: Users, token: string) {
         const data = JSON.stringify(user);
 
         localStorage.setItem('tokenPontuaae', token);
-        localStorage.setItem('userPontuaae',btoa(data));
+        localStorage.setItem('userPontuaae', btoa(data));
     }
 
-    public static setUser(user:users){
+    public static setUser(user: Users) {
         const data = JSON.stringify(user);
 
-        localStorage.setItem('userPontuaae',btoa(data)); 
+        localStorage.setItem('userPontuaae', btoa(data));
     }
 
-    public static setToken( token: string){
-       
-        localStorage.setItem('tokenPontuaae',token);
+    public static setToken(token: string) {
+
+        localStorage.setItem('tokenPontuaae', token);
     }
 
 
-    public static getUser(): users {
+    public static getUser(): Users {
         const data = localStorage.getItem('userPontuaae');
         if (data) {
             return JSON.parse(atob(data));
-            
+
         } else {
             return null;
         }
     }
-    
-  
+
+
 
     public static getToken(): string {
         const data = localStorage.getItem('tokenPontuaae');
@@ -41,10 +41,11 @@ export class Security{
         }
     }
     public static hasToken(): boolean {
-        if (this.getToken())
+        if (this.getToken()) {
             return true;
-        else
-            return false;
+        }
+        return false;
+
     }
 
     public static clear() {

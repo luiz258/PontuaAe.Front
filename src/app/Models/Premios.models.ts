@@ -5,7 +5,5 @@ export class Premios {
     public quantidade: number;
     public Validade: number;
     public img: string;
-    public PontosNessesario: number
-
-
+    public PontosNessesario: number;
 }

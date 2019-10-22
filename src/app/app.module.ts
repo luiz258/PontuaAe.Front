@@ -1,5 +1,5 @@
 import { ToastrModule } from 'ngx-toastr';
-import { HttpClientModule} from '@angular/common/http'
+import { HttpClientModule } from '@angular/common/http';
 import { RouterModule, Routes } from '@angular/router';
 import { AppRoutingModule } from './app-routing.module';
 import { BrowserModule } from '@angular/platform-browser';
@@ -7,7 +7,9 @@ import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-import {NgxMaskModule, IConfig} from 'ngx-mask';
+import { CloudinaryModule } from '@cloudinary/angular-5.x';
+import * as  Cloudinary from 'cloudinary-core';
+import { NgxMaskModule, IConfig } from 'ngx-mask';
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './Page/Account/login/login.component';
@@ -50,7 +52,7 @@ export let options: Partial<IConfig> | (() => Partial<IConfig>);
     LoginComponent,
     CadastrarLoginComponent,
     PontuacaoComponent,
-    PerfilComponent,  
+    PerfilComponent,
     MenuComponent,
     CarregarComponent,
     PontuarComponent,
@@ -66,10 +68,11 @@ export let options: Partial<IConfig> | (() => Partial<IConfig>);
     AppRoutingModule,
     BrowserAnimationsModule, // required animations module
     ToastrModule.forRoot(), // ToastrModule added
-    ConfigProgramaModule, 
-    NgxMaskModule.forRoot(options) 
-],
-  exports:[],
+    ConfigProgramaModule,
+    NgxMaskModule.forRoot(options),
+    CloudinaryModule.forRoot(Cloudinary, { cloud_name: 'pontuaae' }),
+  ],
+  exports: [],
   providers: [AutenticacaoService, AuthService, ClienteService],
   bootstrap: [AppComponent]
 })

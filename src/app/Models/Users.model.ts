@@ -1,4 +1,4 @@
-export class users {
+export class Users {
     constructor(
         public id: string,
         public email: string,
@@ -6,4 +6,5 @@ export class users {
     ) {
 
     }
+
 }

@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { DataService } from 'src/app/Service/Empresa.service';
 import { Empresa } from 'src/app/Models/Empresa.models';
 import { Observable } from 'rxjs';
+import { ClienteService } from 'src/app/Service/Cliente.service';
+import { ListaEmpresaSaldo } from 'src/app/Models/ListarEmpresaSaldo';
 
 
 @Component({
@@ -10,12 +11,19 @@ import { Observable } from 'rxjs';
   styleUrls: ['./listar-empresas.component.css']
 })
 export class ListarEmpresasComponent implements OnInit {
-   empresas: Empresa[] ;
+  ListaSaldos: ListaEmpresaSaldo[];
+  public URL_IMG = 'https://localhost:44311';
 
-  constructor(private service: DataService) { }
+  constructor(private service: ClienteService) { }
 
-  ngOnInit() { 
-    this.service.listarEmpresas().subscribe(datas => this.empresas = datas);
+  ngOnInit() {
+    this.service.ListarProgramasFidelidadeCadastrados().subscribe(datas => this.ListaSaldos = datas);
+
   }
 
+
+
+
 }
+
+

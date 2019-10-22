@@ -11,11 +11,11 @@ export class NavComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    if(Security.getUser().claim === 'Cliente'){
+    if (Security.getUser().claim === 'Cliente') {
       this.show = true;
-     }
+    }
   }
 
- 
+
 
 }

@@ -1,4 +1,3 @@
-
 import { AuthService } from './Service/auth.service';
 import { CadastrarLoginComponent } from './Page/Account/cadastrar-login/cadastrar-login.component';
 import { LoginComponent } from './Page/Account/login/login.component';
@@ -22,12 +21,12 @@ const appRoutes = [
   {
     path: '',
     component: MenuComponent,
-    canActivate:[AuthService],
+    canActivate: [AuthService],
     children: [
 
       { path: '', component: CardgroupComponent },
       { path: 'home', component: CardgroupComponent },
-      { path: 'cliente', component: ListarEmpresasComponent },
+      { path: 'cliente', component: ListarEmpresasComponent, clientActivate: [AuthService] },
       { path: 'preCadastro', component: PreCadatroComponent },
       { path: 'perfil', component: PerfilComponent },
       { path: 'pontuacao', component: PontuacaoComponent },
@@ -35,7 +34,8 @@ const appRoutes = [
         path: 'config', component: ConfigProgramaComponent,
         children: [
           { path: 'regra/:id', component: RegraComponent },
-          { path: 'premios/:id', component: PremiosComponent },]
+          { path: 'premios/:id', component: PremiosComponent },
+        ]
       },
 
     ]
@@ -46,7 +46,6 @@ const appRoutes = [
   { path: 'loginCliente', component: LoginClienteComponent },
   { path: 'cadastrar', component: CadastrarLoginComponent },
   { path: 'cadastrarCliente', component: CadastrarClienteComponent },
- 
 ];
 
 @NgModule({
