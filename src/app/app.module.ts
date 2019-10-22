@@ -17,8 +17,7 @@ import { CadastrarLoginComponent } from './Page/Account/cadastrar-login/cadastra
 
 import { PontuacaoComponent } from './Page/ProgramaFidelidade/pontuacao/pontuacao.component';
 import { PerfilComponent } from './Page/Account/perfil/perfil.component';
-=======
->>>>>>> 2e79424748f285d43ae6fe6b32f7524dc4b1e48c
+
 import { MenuComponent } from './Page/Shared/Menu.component';
 import { ConfigProgramaComponent } from './Page/ProgramaFidelidade/config-programa/config-programa.component';
 import { PreCadatroComponent } from './Page/ProgramaFidelidade/pre-cadatro/pre-cadatro.component';
