@@ -1,9 +1,9 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material';
 import { NgForm, FormGroup, FormBuilder } from '@angular/forms';
-import { RegraProgramaService } from 'src/app/Service/RegraPrograma.service';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+import { RulePointService } from 'src/app/Service/RulePoint.service';
 
 @Component({
   selector: 'app-punctuation-create',
@@ -17,7 +17,7 @@ public busy = false;
     @Inject(MAT_DIALOG_DATA) public data,
     public dialogRef: MatDialogRef<PunctuationCreateComponent>,
     private router: Router,
-    private service: RegraProgramaService,
+    private service: RulePointService,
     private fb: FormBuilder,
     private toastr: ToastrService
     ) { 

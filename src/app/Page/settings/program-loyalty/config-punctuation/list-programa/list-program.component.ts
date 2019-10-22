@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { RegraProgramaService } from 'src/app/Service/RegraPrograma.service';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
-import { Punctuation } from 'src/app/Models/Punctuation';
 import { PunctuationCreateComponent } from '../punctuation-create/punctuation-create.component';
+import { Punctuation } from 'src/app/Models/Punctuation.models';
 
 @Component({
   selector: 'app-list-program',
