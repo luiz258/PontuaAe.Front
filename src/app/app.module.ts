@@ -14,7 +14,7 @@ import { NgxMaskModule, IConfig } from 'ngx-mask';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './Page/Account/login/login.component';
 import { CadastrarLoginComponent } from './Page/Account/cadastrar-login/cadastrar-login.component';
-<<<<<<< HEAD
+
 import { PontuacaoComponent } from './Page/ProgramaFidelidade/pontuacao/pontuacao.component';
 import { PerfilComponent } from './Page/Account/perfil/perfil.component';
 =======
@@ -41,6 +41,7 @@ import { ListProgramComponent } from './Page/settings/program-loyalty/config-pun
 import { PunctuationCreateComponent } from './Page/settings/program-loyalty/config-punctuation/punctuation-create/punctuation-create.component';
 import { AwardListComponent } from './Page/settings/program-loyalty/config-awards/award-list/award-list.component';
 import { MatButtonModule, MatDialogModule } from '@angular/material';
+import { ProgramLoyaltyComponent } from './Page/settings/program-loyalty/program-loyalty.component';
 
 
 
@@ -72,6 +73,7 @@ export let options: Partial<IConfig> | (() => Partial<IConfig>);
     PunctuationCreateComponent,
     AwardListComponent,
     ListProgramComponent,
+    ProgramLoyaltyComponent,
   ],
   imports: [
 
