@@ -14,6 +14,9 @@ import { PontuacaoComponent } from './Page/ProgramaFidelidade/pontuacao/pontuaca
 import { LoginClienteComponent } from './Page/AccountCliente/login-cliente/login-cliente.component';
 import { CadastrarClienteComponent } from './Page/AccountCliente/cadastrar-cliente/cadastrar-cliente.component';
 import { ListarEmpresasComponent } from './Page/Home/listar-empresas/listar-empresas.component';
+import { ProgramLoyaltyComponent } from './Page/settings/program-loyalty/program-loyalty.component';
+import { ListProgramComponent } from './Page/settings/program-loyalty/config-punctuation/list-programa/list-program.component';
+import { AwardListComponent } from './Page/settings/program-loyalty/config-awards/award-list/award-list.component';
 
 
 const appRoutes = [
@@ -30,13 +33,13 @@ const appRoutes = [
       { path: 'preCadastro', component: PreCadatroComponent },
       { path: 'perfil', component: PerfilComponent },
       { path: 'pontuacao', component: PontuacaoComponent },
-      {
-        path: 'config', component: ConfigProgramaComponent,
+      
+        { path: 'config', component: ProgramLoyaltyComponent,
         children: [
-          { path: 'regra/:id', component: RegraComponent },
-          { path: 'premios/:id', component: PremiosComponent },
-        ]
-      },
+          { path: 'listPunctuation', component: ListProgramComponent },     
+          { path: 'listAward', component: AwardListComponent },]
+      
+        },
 
     ]
   },

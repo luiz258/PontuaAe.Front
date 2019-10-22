@@ -1,0 +1,33 @@
+
+
+
+
+
+<div class="uk-text-left">
+    <!--<h4 style="text-align:left">campanha!</h4>-->
+    <a class="uk-button uk-button-primary BotaoSucesso" (click)="openDialog(null)"> <i uk-icon="icon: plus-circle; ratio: 1.1" ></i> Criar novo </a>
+</div>
+<hr>
+<table class="uk-table uk-table-hover uk-table-divider">
+    <thead>
+      <tr>
+        <th>Imagem</th>
+        <th>Nome</th>
+        <th>Descrição</th>
+        <th>Validade</th>
+        <th> </th>
+      </tr>
+    </thead>
+    <tbody >
+        <tr *ngIf="List$"></tr>
+        <td class="font-italic text-center" colspan="5">        
+        <p style="text-align:center"><b>Precisa criar campanha!</b></p>
+        </td>
+      <tr *ngFor="let coluna of List$ | async  ">
+    <td>{{coluna.img}}</td> 
+    <td>{{coluna.nome}}</td>  
+    <td>{{coluna.descricao}}</td>   
+    <td>{{coluna.validade}}</td>  
+    </tr>
+    </tbody>
+  </table>
