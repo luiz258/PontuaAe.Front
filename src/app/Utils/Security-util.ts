@@ -53,4 +53,18 @@ export class Security {
         localStorage.removeItem('tokenPontuaae');
     }
 
+    public static isInRole(claim: string): boolean {
+        const user = this.getUser();
+
+        if (!user) {
+            return false;
+        }
+        // tslint:disable-next-line: triple-equals
+        if (!user.claim || user.claim.length == 0) {
+            return false;
+        }
+
+        return user.claim.includes(claim);
+    }
+
 }

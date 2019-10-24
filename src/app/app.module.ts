@@ -29,7 +29,7 @@ import { CarregarComponent } from './Page/Shared/carregar/carregar.component';
 import { ConfigProgramaModule } from './Page/ProgramaFidelidade/config-programa/config-programa.module';
 
 import { AutenticacaoService } from './Service/Autenticacao.service';
-import { AuthService } from './Service/auth.service';
+import { AuthService } from './Guards/auth.service';
 import { PontuarComponent } from './Page/ProgramaFidelidade/pontuacao/pontuar/pontuar.component';
 import { RegatarComponent } from './Page/ProgramaFidelidade/pontuacao/regatar/regatar.component';
 import { LoginClienteComponent } from './Page/AccountCliente/login-cliente/login-cliente.component';
@@ -41,7 +41,8 @@ import { PunctuationCreateComponent } from './Page/settings/program-loyalty/conf
 import { AwardListComponent } from './Page/settings/program-loyalty/config-awards/award-list/award-list.component';
 import { MatButtonModule, MatDialogModule } from '@angular/material';
 import { ProgramLoyaltyComponent } from './Page/settings/program-loyalty/program-loyalty.component';
-
+import { ClientGuard } from './Guards/client.guard';
+import { AdminGuard } from './Guards/Admin.guard';
 
 
 
@@ -90,10 +91,9 @@ export let options: Partial<IConfig> | (() => Partial<IConfig>);
     ToastrModule.forRoot(), // ToastrModule added
     ConfigProgramaModule,
     NgxMaskModule.forRoot(options),
-    CloudinaryModule.forRoot(Cloudinary, { cloud_name: 'pontuaae' }),
   ],
   exports: [],
-  providers: [AutenticacaoService, AuthService, ClienteService],
+  providers: [AutenticacaoService, AuthService, ClienteService, ClientGuard, AdminGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

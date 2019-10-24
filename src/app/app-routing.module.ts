@@ -1,4 +1,5 @@
-import { AuthService } from './Service/auth.service';
+import { AuthService } from './Guards/auth.service';
+import { ClientGuard } from './Guards/client.guard';
 import { CadastrarLoginComponent } from './Page/Account/cadastrar-login/cadastrar-login.component';
 import { LoginComponent } from './Page/Account/login/login.component';
 
@@ -18,6 +19,7 @@ import { ProgramLoyaltyComponent } from './Page/settings/program-loyalty/program
 import { ListProgramComponent } from './Page/settings/program-loyalty/config-punctuation/list-programa/list-program.component';
 import { AwardListComponent } from './Page/settings/program-loyalty/config-awards/award-list/award-list.component';
 import { PerfilComponent } from './Page/Account/perfil/perfil.component';
+import { AdminGuard } from './Guards/Admin.guard';
 
 
 const appRoutes = [
@@ -25,26 +27,30 @@ const appRoutes = [
   {
     path: '',
     component: MenuComponent,
-    canActivate: [AuthService],
+    canActivate: [AuthService, AdminGuard],
     children: [
 
       { path: '', component: CardgroupComponent },
       { path: 'home', component: CardgroupComponent },
-      { path: 'cliente', component: ListarEmpresasComponent, clientActivate: [AuthService] },
+
       { path: 'preCadastro', component: PreCadatroComponent },
       { path: 'perfil', component: PerfilComponent },
       { path: 'pontuacao', component: PontuacaoComponent },
-      
-        { path: 'config', component: ProgramLoyaltyComponent,
+
+
+
+      {
+        path: 'config', component: ProgramLoyaltyComponent,
         children: [
-          { path: 'listPunctuation', component: ListProgramComponent },     
+          { path: 'listPunctuation', component: ListProgramComponent },
+          // tslint:disable-next-line: whitespace
           { path: 'listAward', component: AwardListComponent },]
-      
-        },
+
+      },
 
     ]
   },
-
+  { path: 'cliente', component: ListarEmpresasComponent, canActivate: [ClientGuard] },
 
   { path: 'login', component: LoginComponent },
   { path: 'loginCliente', component: LoginClienteComponent },
