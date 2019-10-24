@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { PontuacaoService } from 'src/app/Service/Pontuacao.service';
+import { PointService } from 'src/app/Service/Point.service';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 
@@ -14,7 +14,7 @@ public form:FormGroup;
 
   constructor(
     private fb: FormBuilder,
-    private service: PontuacaoService,
+    private service: PointService,
     private router: Router, 
     private toastr: ToastrService,
   ) { 

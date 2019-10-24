@@ -1,4 +1,4 @@
-import { RegraPrograma } from './../Models/RegraPrograma.models';
+import { RegraPrograma } from '../Models/RegraPrograma.models';
 import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Security } from '../Utils/Security-util';
@@ -10,7 +10,7 @@ import { ListaEmpresaSaldo } from '../Models/ListarEmpresaSaldo';
 @Injectable({
   providedIn: 'root'
 })
-export class ClienteService {
+export class CustomerService {
   public url = 'https://localhost:44311/';
   public id: number;
   constructor(private http: HttpClient) { }

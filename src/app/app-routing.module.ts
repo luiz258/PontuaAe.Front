@@ -2,10 +2,6 @@ import { AuthService } from './Guards/auth.service';
 import { ClientGuard } from './Guards/client.guard';
 import { CadastrarLoginComponent } from './Page/Account/cadastrar-login/cadastrar-login.component';
 import { LoginComponent } from './Page/Account/login/login.component';
-
-import { PremiosComponent } from './Page/ProgramaFidelidade/config-programa/premios/premios.component';
-import { RegraComponent } from './Page/ProgramaFidelidade/config-programa/regra/regra.component';
-import { ConfigProgramaComponent } from './Page/ProgramaFidelidade/config-programa/config-programa.component';
 import { MenuComponent } from './Page/Shared/Menu.component';
 import { PreCadatroComponent } from './Page/ProgramaFidelidade/pre-cadatro/pre-cadatro.component';
 import { CardgroupComponent } from './Page/Home/cardgroup/cardgroup.component';
@@ -13,8 +9,8 @@ import { RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
 import { PontuacaoComponent } from './Page/ProgramaFidelidade/pontuacao/pontuacao.component';
 import { LoginClienteComponent } from './Page/AccountCliente/login-cliente/login-cliente.component';
-import { CadastrarClienteComponent } from './Page/AccountCliente/cadastrar-cliente/cadastrar-cliente.component';
-import { ListarEmpresasComponent } from './Page/Home/listar-empresas/listar-empresas.component';
+import { RegisterCustomerComponent } from './Page/AccountCliente/cadastrar-cliente/register-customer.component';
+import { ListCompanyComponent } from './Page/Home/list-company/list-company.component';
 import { ProgramLoyaltyComponent } from './Page/settings/program-loyalty/program-loyalty.component';
 import { ListProgramComponent } from './Page/settings/program-loyalty/config-punctuation/list-programa/list-program.component';
 import { AwardListComponent } from './Page/settings/program-loyalty/config-awards/award-list/award-list.component';
@@ -42,20 +38,20 @@ const appRoutes = [
       {
         path: 'config', component: ProgramLoyaltyComponent,
         children: [
-          { path: 'listPunctuation', component: ListProgramComponent },
-          // tslint:disable-next-line: whitespace
+
+          { path: 'listPoint', component: ListProgramComponent },
           { path: 'listAward', component: AwardListComponent },]
 
       },
 
     ]
   },
-  { path: 'cliente', component: ListarEmpresasComponent, canActivate: [ClientGuard] },
+  { path: 'cliente', component: ListCompanyComponent, canActivate: [ClientGuard] },
 
   { path: 'login', component: LoginComponent },
   { path: 'loginCliente', component: LoginClienteComponent },
   { path: 'cadastrar', component: CadastrarLoginComponent },
-  { path: 'cadastrarCliente', component: CadastrarClienteComponent },
+  { path: 'registerCustomer', component: RegisterCustomerComponent },
 ];
 
 @NgModule({

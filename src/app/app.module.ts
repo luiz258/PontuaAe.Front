@@ -6,9 +6,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
-import { CloudinaryModule } from '@cloudinary/angular-5.x';
-import * as  Cloudinary from 'cloudinary-core';
 import { NgxMaskModule, IConfig } from 'ngx-mask';
 
 import { AppComponent } from './app.component';
@@ -17,6 +14,7 @@ import { CadastrarLoginComponent } from './Page/Account/cadastrar-login/cadastra
 
 import { PontuacaoComponent } from './Page/ProgramaFidelidade/pontuacao/pontuacao.component';
 import { PerfilComponent } from './Page/Account/perfil/perfil.component';
+
 
 import { MenuComponent } from './Page/Shared/Menu.component';
 import { ConfigProgramaComponent } from './Page/ProgramaFidelidade/config-programa/config-programa.component';
@@ -33,16 +31,16 @@ import { AuthService } from './Guards/auth.service';
 import { PontuarComponent } from './Page/ProgramaFidelidade/pontuacao/pontuar/pontuar.component';
 import { RegatarComponent } from './Page/ProgramaFidelidade/pontuacao/regatar/regatar.component';
 import { LoginClienteComponent } from './Page/AccountCliente/login-cliente/login-cliente.component';
-import { CadastrarClienteComponent } from './Page/AccountCliente/cadastrar-cliente/cadastrar-cliente.component';
-import { ClienteService } from './Service/Cliente.service';
-import { ListarEmpresasComponent } from './Page/Home/listar-empresas/listar-empresas.component';
+import { RegisterCustomerComponent } from './Page/AccountCliente/cadastrar-cliente/register-customer.component';
+import { ListCompanyComponent } from './Page/Home/list-company/list-company.component';
 import { ListProgramComponent } from './Page/settings/program-loyalty/config-punctuation/list-programa/list-program.component';
-import { PunctuationCreateComponent } from './Page/settings/program-loyalty/config-punctuation/punctuation-create/punctuation-create.component';
+import { PointCreateComponent } from './Page/settings/program-loyalty/config-punctuation/point-create/point-create.component';
 import { AwardListComponent } from './Page/settings/program-loyalty/config-awards/award-list/award-list.component';
 import { MatButtonModule, MatDialogModule } from '@angular/material';
 import { ProgramLoyaltyComponent } from './Page/settings/program-loyalty/program-loyalty.component';
 import { ClientGuard } from './Guards/client.guard';
 import { AdminGuard } from './Guards/Admin.guard';
+import { CustomerService } from './Service/Customer.service';
 
 
 
@@ -67,13 +65,14 @@ export let options: Partial<IConfig> | (() => Partial<IConfig>);
     PontuarComponent,
     RegatarComponent,
     LoginClienteComponent,
-    CadastrarClienteComponent,
-    ListarEmpresasComponent,
+    RegisterCustomerComponent,
+    ListCompanyComponent,
     AppComponent,
-    PunctuationCreateComponent,
+    PointCreateComponent,
     AwardListComponent,
     ListProgramComponent,
     ProgramLoyaltyComponent,
+
   ],
   imports: [
 
@@ -93,7 +92,7 @@ export let options: Partial<IConfig> | (() => Partial<IConfig>);
     NgxMaskModule.forRoot(options),
   ],
   exports: [],
-  providers: [AutenticacaoService, AuthService, ClienteService, ClientGuard, AdminGuard],
+  providers: [AutenticacaoService, AuthService, ClientGuard, AdminGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

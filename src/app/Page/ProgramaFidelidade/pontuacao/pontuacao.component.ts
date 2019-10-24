@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { PontuacaoService } from '../../../Service/Pontuacao.service';
+import { PointService } from '../../../Service/Point.service';
 import { Premios } from 'src/app/Models/Premios.models';
 @Component({
   selector: 'app-pontuacao',
@@ -10,7 +10,7 @@ export class PontuacaoComponent implements OnInit {
   premios: Premios[];
 
 
-  constructor(private service: PontuacaoService) { }
+  constructor(private service: PointService) { }
 
   ngOnInit() {
     this.service.BuscarPremios().subscribe(datas => this.premios = datas);

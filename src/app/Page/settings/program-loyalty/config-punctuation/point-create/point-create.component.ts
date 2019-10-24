@@ -1,21 +1,21 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material';
-import { NgForm, FormGroup, FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { RulePointService } from 'src/app/Service/RulePoint.service';
+import { FormGroup, FormBuilder } from '@angular/forms';
 
 @Component({
   selector: 'app-punctuation-create',
   templateUrl: './punctuation-create.component.html',
   styleUrls: ['./punctuation-create.component.css']
 })
-export class PunctuationCreateComponent implements OnInit {
+export class PointCreateComponent implements OnInit {
 public form: FormGroup;
 public busy = false;
   constructor(
     @Inject(MAT_DIALOG_DATA) public data,
-    public dialogRef: MatDialogRef<PunctuationCreateComponent>,
+    public dialogRef: MatDialogRef<PointCreateComponent>,
     private router: Router,
     private service: RulePointService,
     private fb: FormBuilder,

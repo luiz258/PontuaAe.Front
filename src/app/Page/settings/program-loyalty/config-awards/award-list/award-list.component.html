@@ -2,7 +2,7 @@
 
 <div class="uk-text-right">
     <!--<h4 style="text-align:left">campanha!</h4>-->
-    <a class="uk-button uk-button-primary">Adicionar</a>
+    <a class="uk-button uk-border-rounded BotaoSucesso"><i uk-icon="icon: plus-circle; ratio: 1.1" ></i>Adicionar</a>
 </div>
 <hr>
 
@@ -19,7 +19,6 @@
     <tbody >
         <tr *ngIf="Premio$"></tr>
         <td class="font-italic text-center" colspan="5">
-        
         <p style="text-align:center"><b>Nenhum  Prêmio cadastrado!</b></p>
         </td>
       <tr *ngFor="let coluna of Premio$ | async  ">
