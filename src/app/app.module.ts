@@ -6,16 +6,21 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
-import { CloudinaryModule } from '@cloudinary/angular-5.x';
-import * as  Cloudinary from 'cloudinary-core';
 import { NgxMaskModule, IConfig } from 'ngx-mask';
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './Page/Account/login/login.component';
 import { CadastrarLoginComponent } from './Page/Account/cadastrar-login/cadastrar-login.component';
+<<<<<<< HEAD
 import { PontuacaoComponent } from './Page/ProgramaFidelidade/pontuacao/pontuacao.component';
 import { PerfilComponent } from './Page/Account/perfil/perfil.component';
+=======
+
+import { PontuacaoComponent } from './Page/ProgramaFidelidade/pontuacao/pontuacao.component';
+import { PerfilComponent } from './Page/Account/perfil/perfil.component';
+
+
+>>>>>>> 2a27949fc0e56cd62af69fe5ba421f3afbc4b858
 import { MenuComponent } from './Page/Shared/Menu.component';
 import { ConfigProgramaComponent } from './Page/ProgramaFidelidade/config-programa/config-programa.component';
 import { PreCadatroComponent } from './Page/ProgramaFidelidade/pre-cadatro/pre-cadatro.component';
@@ -27,7 +32,7 @@ import { CarregarComponent } from './Page/Shared/carregar/carregar.component';
 import { ConfigProgramaModule } from './Page/ProgramaFidelidade/config-programa/config-programa.module';
 
 import { AutenticacaoService } from './Service/Autenticacao.service';
-import { AuthService } from './Service/auth.service';
+import { AuthService } from './Guards/auth.service';
 import { PontuarComponent } from './Page/ProgramaFidelidade/pontuacao/pontuar/pontuar.component';
 import { RegatarComponent } from './Page/ProgramaFidelidade/pontuacao/regatar/regatar.component';
 import { LoginClienteComponent } from './Page/AccountCliente/login-cliente/login-cliente.component';
@@ -38,6 +43,11 @@ import { PointCreateComponent } from './Page/settings/program-loyalty/config-pun
 import { AwardListComponent } from './Page/settings/program-loyalty/config-awards/award-list/award-list.component';
 import { MatButtonModule, MatDialogModule } from '@angular/material';
 import { ProgramLoyaltyComponent } from './Page/settings/program-loyalty/program-loyalty.component';
+<<<<<<< HEAD
+=======
+import { ClientGuard } from './Guards/client.guard';
+import { AdminGuard } from './Guards/Admin.guard';
+>>>>>>> 2a27949fc0e56cd62af69fe5ba421f3afbc4b858
 import { CustomerService } from './Service/Customer.service';
 
 
@@ -69,7 +79,13 @@ export let options: Partial<IConfig> | (() => Partial<IConfig>);
     PointCreateComponent,
     AwardListComponent,
     ListProgramComponent,
+<<<<<<< HEAD
     ProgramLoyaltyComponent  ],
+=======
+    ProgramLoyaltyComponent,
+
+  ],
+>>>>>>> 2a27949fc0e56cd62af69fe5ba421f3afbc4b858
   imports: [
 
     BrowserModule,
@@ -86,10 +102,9 @@ export let options: Partial<IConfig> | (() => Partial<IConfig>);
     ToastrModule.forRoot(), // ToastrModule added
     ConfigProgramaModule,
     NgxMaskModule.forRoot(options),
-    CloudinaryModule.forRoot(Cloudinary, { cloud_name: 'pontuaae' }),
   ],
   exports: [],
-  providers: [AutenticacaoService, AuthService, CustomerService],
+  providers: [AutenticacaoService, AuthService, ClientGuard, AdminGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
