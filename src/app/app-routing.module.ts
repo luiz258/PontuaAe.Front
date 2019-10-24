@@ -33,17 +33,14 @@ const appRoutes = [
       { path: 'perfil', component: PerfilComponent },
       { path: 'pontuacao', component: PontuacaoComponent },
 
-
-
       {
         path: 'config', component: ProgramLoyaltyComponent,
         children: [
 
           { path: 'listPoint', component: ListProgramComponent },
-          { path: 'listAward', component: AwardListComponent },]
-
+          { path: 'listAward', component: AwardListComponent },
+        ]
       },
-
     ]
   },
   { path: 'cliente', component: ListCompanyComponent, canActivate: [ClientGuard] },
