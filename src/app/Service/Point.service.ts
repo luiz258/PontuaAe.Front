@@ -7,7 +7,7 @@ import { tap } from 'rxjs/operators';
 @Injectable({
     providedIn: 'root'
 })
-export class PontuacaoService {
+export class PointService {
 
     public url = 'https://localhost:44311/';
     public id: number;

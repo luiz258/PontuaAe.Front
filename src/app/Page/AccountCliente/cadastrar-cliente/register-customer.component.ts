@@ -2,23 +2,23 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
-import { ClienteService } from 'src/app/Service/Cliente.service';
+import { CustomerService } from 'src/app/Service/Customer.service';
 import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-cadastrar-cliente',
   templateUrl: './cadastrar-cliente.component.html',
   styleUrls: ['./cadastrar-cliente.component.css'],
-  providers: [ClienteService]
+  providers: [CustomerService]
 })
-export class CadastrarClienteComponent implements OnInit {
+export class RegisterCustomerComponent implements OnInit {
 
 
   public form:FormGroup;
 
   constructor(
     private fb: FormBuilder,
-    private service: ClienteService,
+    private service: CustomerService,
     private router: Router,
     private toastr: ToastrService,
     private http: HttpClient,

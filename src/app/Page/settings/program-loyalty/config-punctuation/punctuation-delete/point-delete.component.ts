@@ -5,7 +5,7 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './punctuation-delete.component.html',
   styleUrls: ['./punctuation-delete.component.css']
 })
-export class PunctuationDeleteComponent implements OnInit {
+export class PointDeleteComponent implements OnInit {
 
   constructor() { }
 
