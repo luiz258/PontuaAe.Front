@@ -6,9 +6,9 @@ import { RulePointService } from 'src/app/Service/RulePoint.service';
 import { FormGroup, FormBuilder } from '@angular/forms';
 
 @Component({
-  selector: 'app-punctuation-create',
-  templateUrl: './punctuation-create.component.html',
-  styleUrls: ['./punctuation-create.component.css']
+  selector: 'app-point-create',
+  templateUrl: './point-create.component.html',
+  styleUrls: ['./point-create.component.css']
 })
 export class PointCreateComponent implements OnInit {
 public form: FormGroup;
