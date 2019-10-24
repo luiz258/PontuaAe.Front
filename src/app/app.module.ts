@@ -14,10 +14,17 @@ import { NgxMaskModule, IConfig } from 'ngx-mask';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './Page/Account/login/login.component';
 import { CadastrarLoginComponent } from './Page/Account/cadastrar-login/cadastrar-login.component';
+<<<<<<< HEAD
 import { PontuacaoComponent } from './Page/ProgramaFidelidade/pontuacao/pontuacao.component';
 import { PerfilComponent } from './Page/Account/perfil/perfil.component';
 
 
+=======
+
+import { PontuacaoComponent } from './Page/ProgramaFidelidade/pontuacao/pontuacao.component';
+import { PerfilComponent } from './Page/Account/perfil/perfil.component';
+
+>>>>>>> 0f7e146a52d3c1e5900756173db8cf88558a5d0a
 import { MenuComponent } from './Page/Shared/Menu.component';
 import { ConfigProgramaComponent } from './Page/ProgramaFidelidade/config-programa/config-programa.component';
 import { PreCadatroComponent } from './Page/ProgramaFidelidade/pre-cadatro/pre-cadatro.component';
@@ -40,7 +47,10 @@ import { PointCreateComponent } from './Page/settings/program-loyalty/config-pun
 import { AwardListComponent } from './Page/settings/program-loyalty/config-awards/award-list/award-list.component';
 import { MatButtonModule, MatDialogModule } from '@angular/material';
 import { ProgramLoyaltyComponent } from './Page/settings/program-loyalty/program-loyalty.component';
+<<<<<<< HEAD
 import { CustomerService } from './Service/Customer.service';
+=======
+>>>>>>> 0f7e146a52d3c1e5900756173db8cf88558a5d0a
 
 
 
@@ -72,7 +82,11 @@ export let options: Partial<IConfig> | (() => Partial<IConfig>);
     PointCreateComponent,
     AwardListComponent,
     ListProgramComponent,
+<<<<<<< HEAD
     ProgramLoyaltyComponent
+=======
+    ProgramLoyaltyComponent,
+>>>>>>> 0f7e146a52d3c1e5900756173db8cf88558a5d0a
   ],
   imports: [
 
