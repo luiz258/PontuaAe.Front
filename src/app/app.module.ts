@@ -49,6 +49,8 @@ import { ClientGuard } from './Guards/client.guard';
 import { AdminGuard } from './Guards/Admin.guard';
 >>>>>>> 2a27949fc0e56cd62af69fe5ba421f3afbc4b858
 import { CustomerService } from './Service/Customer.service';
+import { ClientGuard } from './Guards/client.guard';
+import { AdminGuard } from './Guards/Admin.guard';
 
 
 
@@ -79,13 +81,13 @@ export let options: Partial<IConfig> | (() => Partial<IConfig>);
     PointCreateComponent,
     AwardListComponent,
     ListProgramComponent,
-<<<<<<< HEAD
+
     ProgramLoyaltyComponent  ],
-=======
+
     ProgramLoyaltyComponent,
 
   ],
->>>>>>> 2a27949fc0e56cd62af69fe5ba421f3afbc4b858
+
   imports: [
 
     BrowserModule,
