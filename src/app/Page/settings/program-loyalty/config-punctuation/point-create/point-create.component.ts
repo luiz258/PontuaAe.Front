@@ -7,12 +7,12 @@ import { FormGroup, FormBuilder } from '@angular/forms';
 
 @Component({
   selector: 'app-punctuation-create',
-  templateUrl: './punctuation-create.component.html',
-  styleUrls: ['./punctuation-create.component.css']
+  templateUrl: './point-create.component.html',
+  styleUrls: ['./point-create.component.css']
 })
 export class PointCreateComponent implements OnInit {
-public form: FormGroup;
-public busy = false;
+  public form: FormGroup;
+  public busy = false;
   constructor(
     @Inject(MAT_DIALOG_DATA) public data,
     public dialogRef: MatDialogRef<PointCreateComponent>,
@@ -20,9 +20,9 @@ public busy = false;
     private service: RulePointService,
     private fb: FormBuilder,
     private toastr: ToastrService
-    ) { 
-       this.form = this.fb.group({});
-    }
+  ) {
+    this.form = this.fb.group({});
+  }
 
   ngOnInit() {
   }
@@ -36,7 +36,7 @@ public busy = false;
         (data: any) => {
           this.busy = false;
           this.toastr.success(data.message, 'Adicionado com Sucesso');
-         // this.router.navigate(['/']);
+          // this.router.navigate(['/']);
         },
         (err) => {
           console.log(err);

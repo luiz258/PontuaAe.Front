@@ -23,27 +23,33 @@ const appRoutes = [
   {
     path: '',
     component: MenuComponent,
-    canActivate: [AuthService, AdminGuard],
+    canActivate: [AuthService],
     children: [
 
-      { path: '', component: CardgroupComponent },
-      { path: 'home', component: CardgroupComponent },
+      { path: '', component: CardgroupComponent, canActivate: [AdminGuard] },
+      { path: 'home', component: CardgroupComponent, canActivate: [AdminGuard] },
 
-      { path: 'preCadastro', component: PreCadatroComponent },
-      { path: 'perfil', component: PerfilComponent },
-      { path: 'pontuacao', component: PontuacaoComponent },
+      { path: 'preCadastro', component: PreCadatroComponent, canActivate: [AdminGuard] },
+      { path: 'perfil', component: PerfilComponent, canActivate: [AdminGuard] },
+      { path: 'pontuacao', component: PontuacaoComponent, canActivate: [AdminGuard] },
+
 
       {
         path: 'config', component: ProgramLoyaltyComponent,
+        canActivate: [AdminGuard],
         children: [
 
           { path: 'listPoint', component: ListProgramComponent },
           { path: 'listAward', component: AwardListComponent },
         ]
       },
+
+      { path: 'cliente', component: ListCompanyComponent, canActivate: [ClientGuard] },
     ]
+
+
   },
-  { path: 'cliente', component: ListCompanyComponent, canActivate: [ClientGuard] },
+
 
   { path: 'login', component: LoginComponent },
   { path: 'loginCliente', component: LoginClienteComponent },

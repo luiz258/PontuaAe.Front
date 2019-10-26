@@ -93,6 +93,7 @@ export let options: Partial<IConfig> | (() => Partial<IConfig>);
   ],
   exports: [],
   providers: [AutenticacaoService, AuthService, ClientGuard, AdminGuard],
+
   bootstrap: [AppComponent]
 })
 export class AppModule { }
