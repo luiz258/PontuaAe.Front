@@ -24,23 +24,42 @@ public busy = false;
        this.form = this.fb.group({});
     }
 
-  ngOnInit() {
-  }
+    ngOnInit() {
+      this.busy = true;
+      this
+        .service
+        .getProfile()
+        .subscribe(
+          (data: any) => {
+            this.busy = false;
+            this.form.controls['name'].setValue(data.name);
+            this.form.controls['document'].setValue(data.document);
+            this.form.controls['email'].setValue(data.email);
+          },
+          (err) => {
+            console.log(err);
+            this.busy = false;
+          }
+        );
+    }
+  
 
   submit() {
     this.busy = true;
     this
       .service
-      .post(this.form.value)
+      .createRule(this.form.value)
       .subscribe(
         (data: any) => {
           this.busy = false;
           this.toastr.success(data.message, 'Adicionado com Sucesso');
          // this.router.navigate(['/']);
+         this.dialogRef.close();
         },
         (err) => {
           console.log(err);
           this.busy = false;
+          this.dialogRef.close();
         }
       );
   }

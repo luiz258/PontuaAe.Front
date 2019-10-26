@@ -1,4 +1,4 @@
-import { Users } from './../../../Models/Users.model';
+import { User } from '../../../Models/User.model';
 import { Security } from '../../../Utils/Security-util';
 import { Router } from '@angular/router';
 import { AutenticacaoService } from './../../../Service/Autenticacao.service';

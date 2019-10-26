@@ -1,8 +1,8 @@
-import { RegraPrograma } from '../Models/RegraPrograma.models';
+import { RegraPrograma } from '../Models/ruleProgram';
 import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Security } from '../Utils/Security-util';
-import { Empresa } from '../Models/Empresa.models';
+import { Empresa } from '../Models/Company.models';
 import { tap } from 'rxjs/operators';
 import { ListaEmpresaSaldo } from '../Models/ListarEmpresaSaldo';
 

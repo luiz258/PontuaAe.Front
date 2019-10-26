@@ -1,7 +1,7 @@
 import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, of, throwError } from 'rxjs';
-import { Empresa } from '../Models/Empresa.models';
+import { Empresa } from '../Models/Company.models';
 import { catchError, tap, map } from 'rxjs/operators';
 import { Security } from '../Utils/Security-util';
 

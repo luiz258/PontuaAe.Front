@@ -3,7 +3,7 @@ import { ClientGuard } from './Guards/client.guard';
 import { CadastrarLoginComponent } from './Page/Account/cadastrar-login/cadastrar-login.component';
 import { LoginComponent } from './Page/Account/login/login.component';
 import { MenuComponent } from './Page/Shared/Menu.component';
-import { PreCadatroComponent } from './Page/ProgramaFidelidade/pre-cadatro/pre-cadatro.component';
+import { PreCadatroComponent } from './Page/AccountCliente/pre-cadatro/pre-cadatro.component';
 import { CardgroupComponent } from './Page/Home/cardgroup/cardgroup.component';
 import { RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
@@ -12,7 +12,7 @@ import { LoginClienteComponent } from './Page/AccountCliente/login-cliente/login
 import { RegisterCustomerComponent } from './Page/AccountCliente/cadastrar-cliente/register-customer.component';
 import { ListCompanyComponent } from './Page/Home/list-company/list-company.component';
 import { ProgramLoyaltyComponent } from './Page/settings/program-loyalty/program-loyalty.component';
-import { ListProgramComponent } from './Page/settings/program-loyalty/config-punctuation/list-programa/list-program.component';
+import { ListProgramComponent } from './Page/settings/program-loyalty/config-point.ts/list-program/list-program.component';
 import { AwardListComponent } from './Page/settings/program-loyalty/config-awards/award-list/award-list.component';
 import { PerfilComponent } from './Page/Account/perfil/perfil.component';
 import { AdminGuard } from './Guards/Admin.guard';

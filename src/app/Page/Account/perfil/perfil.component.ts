@@ -3,7 +3,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router, Data } from '@angular/router';
 import { DataService } from 'src/app/Service/Empresa.service';
 import { Security } from 'src/app/Utils/Security-util'
-import { Empresa } from 'src/app/Models/Empresa.models';
+import { Empresa } from 'src/app/Models/Company.models';
 import { ToastrService } from 'ngx-toastr';
 @Component({
   selector: 'app-perfil',

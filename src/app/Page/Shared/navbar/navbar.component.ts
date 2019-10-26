@@ -1,6 +1,6 @@
 import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
-import { Users } from 'src/app/Models/Users.model';
+import { User } from 'src/app/Models/User.model';
 import { Security } from 'src/app/Utils/Security-util';
 
 @Component({
@@ -9,7 +9,7 @@ import { Security } from 'src/app/Utils/Security-util';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
-  public user: Users;
+  public user: User;
 
   constructor(private router: Router) {
 
