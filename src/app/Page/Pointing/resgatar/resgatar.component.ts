@@ -6,10 +6,10 @@ import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-resgatar',
-  templateUrl: './regatar.component.html',
-  styleUrls: ['./regatar.component.css']
+  templateUrl: './resgatar.component.html',
+  styleUrls: ['./resgatar.component.css']
 })
-export class RegatarComponent implements OnInit {
+export class ResgatarComponent implements OnInit {
 public form:FormGroup;
 
   constructor(

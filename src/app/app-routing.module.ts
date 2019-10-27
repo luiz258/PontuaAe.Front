@@ -7,7 +7,6 @@ import { PreCadatroComponent } from './Page/AccountCliente/pre-cadatro/pre-cadat
 import { CardgroupComponent } from './Page/Home/cardgroup/cardgroup.component';
 import { RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
-import { PontuacaoComponent } from './Page/ProgramaFidelidade/pontuacao/pontuacao.component';
 import { LoginClienteComponent } from './Page/AccountCliente/login-cliente/login-cliente.component';
 import { RegisterCustomerComponent } from './Page/AccountCliente/cadastrar-cliente/register-customer.component';
 import { ListCompanyComponent } from './Page/Home/list-company/list-company.component';
@@ -16,6 +15,7 @@ import { ListProgramComponent } from './Page/settings/program-loyalty/config-poi
 import { AwardListComponent } from './Page/settings/program-loyalty/config-awards/award-list/award-list.component';
 import { PerfilComponent } from './Page/Account/perfil/perfil.component';
 import { AdminGuard } from './Guards/Admin.guard';
+import { PontuarComponent } from './Page/Pointing/pontuar/pontuar.component';
 
 
 const appRoutes = [
@@ -23,7 +23,7 @@ const appRoutes = [
   {
     path: '',
     component: MenuComponent,
-    canActivate: [AuthService, AdminGuard],
+    //canActivate: [AuthService, AdminGuard],
     children: [
 
       { path: '', component: CardgroupComponent },
@@ -31,7 +31,7 @@ const appRoutes = [
 
       { path: 'preCadastro', component: PreCadatroComponent },
       { path: 'perfil', component: PerfilComponent },
-      { path: 'pontuacao', component: PontuacaoComponent },
+      { path: 'pontuacao', component: PontuarComponent },
 
       {
         path: 'config', component: ProgramLoyaltyComponent,

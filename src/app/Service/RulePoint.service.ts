@@ -1,4 +1,3 @@
-import { RegraPrograma } from './../Models/RegraPrograma.models';
 import { HttpClient, HttpHeaders, HttpErrorResponse  } from '@angular/common/http';
 import {  Injectable } from "@angular/core";
 import { Security } from '../Utils/Security-util';

@@ -18,8 +18,6 @@ import { NavbarComponent } from './Page/Shared/navbar/navbar.component';
 import { CarregarComponent } from './Page/Shared/carregar/carregar.component';
 import { AutenticacaoService } from './Service/Autenticacao.service';
 import { AuthService } from './Guards/auth.service';
-import { PontuarComponent } from './Page/Pointing/pontuar/pontuar.component';
-import { RegatarComponent } from './Page/Pointing/resgatar/resgatar.component';
 import { LoginClienteComponent } from './Page/AccountCliente/login-cliente/login-cliente.component';
 import { RegisterCustomerComponent } from './Page/AccountCliente/cadastrar-cliente/register-customer.component';
 import { ListCompanyComponent } from './Page/Home/list-company/list-company.component';
@@ -28,9 +26,11 @@ import { PointCreateComponent } from './Page/settings/program-loyalty/config-poi
 import { AwardListComponent } from './Page/settings/program-loyalty/config-awards/award-list/award-list.component';
 import { MatButtonModule, MatDialogModule } from '@angular/material';
 import { ProgramLoyaltyComponent } from './Page/settings/program-loyalty/program-loyalty.component';
-import { CustomerService } from './Service/Customer.service';
 import { ClientGuard } from './Guards/client.guard';
 import { AdminGuard } from './Guards/Admin.guard';
+import { ResgatarComponent } from './Page/Pointing/resgatar/resgatar.component';
+import { PontuarComponent } from './Page/Pointing/pontuar/pontuar.component';
+import { PerfilComponent } from './Page/Account/perfil/perfil.component';
 
 
 
@@ -49,7 +49,7 @@ export let options: Partial<IConfig> | (() => Partial<IConfig>);
     MenuComponent,
     CarregarComponent,
     PontuarComponent,
-    RegatarComponent,
+    ResgatarComponent,
     LoginClienteComponent,
     RegisterCustomerComponent,
     ListCompanyComponent,
@@ -57,7 +57,7 @@ export let options: Partial<IConfig> | (() => Partial<IConfig>);
     PointCreateComponent,
     AwardListComponent,
     ListProgramComponent,
-
+    PerfilComponent,
     ProgramLoyaltyComponent 
   ],
 

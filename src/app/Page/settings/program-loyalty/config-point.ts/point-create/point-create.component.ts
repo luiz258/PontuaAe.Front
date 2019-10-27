@@ -28,7 +28,7 @@ public busy = false;
       this.busy = true;
       this
         .service
-        .getProfile()
+        .ListProgramLoyalty()
         .subscribe(
           (data: any) => {
             this.busy = false;

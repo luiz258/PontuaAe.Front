@@ -6,9 +6,9 @@ import { ListaEmpresaSaldo } from 'src/app/Models/ListarEmpresaSaldo';
 
 
 @Component({
-  selector: 'app-listar-empresas',
-  templateUrl: './listar-empresas.component.html',
-  styleUrls: ['./listar-empresas.component.css']
+  selector: 'app-list-company',
+  templateUrl: './list-company.component.html',
+  styleUrls: ['./list-company.component.css']
 })
 export class ListCompanyComponent implements OnInit {
   ListaSaldos: ListaEmpresaSaldo[];
