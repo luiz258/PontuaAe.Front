@@ -1,38 +1,44 @@
-import { RegraPrograma } from './../Models/RegraPrograma.models';
-import { HttpClient, HttpHeaders, HttpErrorResponse  } from '@angular/common/http';
-import {  Injectable } from "@angular/core";
+import { RuleProgram } from './../Models/ruleProgram';
+import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
+import { Injectable } from '@angular/core';
 import { Security } from '../Utils/Security-util';
 import { Point } from '../Models/Points.models';
 
 
-  //const Url = "http://localhost:3000/empresa";
-  @Injectable({
-    providedIn:'root'
-  })
-export class RulePointService{
-  
 
-  public url = "https://localhost:44311/";
+@Injectable({
+  providedIn: 'root'
+})
+export class RulePointService {
 
-    constructor( private http:HttpClient){
-      }
 
-      public composeHeaders() {
-          const tokem = localStorage.getItem('tokenPontuaae');
-          const headeers = new HttpHeaders().set('Authorization', `bearer ${tokem}`);
-      
-          return headeers;
-      
-        }
+  public url = 'https://localhost:44311/';
 
-createRule(data:any){
-  const id = parseInt(Security.getUser().id);
-  data.IdUsuario = id;
-  return this.http.post(`${this.url}v1/Pontos`, data, { headers: this.composeHeaders() });
+  constructor(private http: HttpClient) {
+  }
 
-}
+  public composeHeaders() {
+    const tokem = localStorage.getItem('tokenPontuaae');
+    const headeers = new HttpHeaders().set('Authorization', `bearer ${tokem}`);
 
-ListProgramLoyalty() {
-  return this.http.get<Point[]>(`${this.url}/Pontos`);
-}
+    return headeers;
+
+  }
+
+  createRule(data: any) {
+    // tslint:disable-next-line: prefer-const
+    let a: number;
+    const id = parseInt(Security.getUser().id, a);
+    data.IdUsuario = id;
+    return this.http.post(`${this.url}v1/Pontos`, data, { headers: this.composeHeaders() });
+
+  }
+
+  ListProgramLoyalty() {
+    return this.http.get<Point[]>(`${this.url}/Pontos`);
+  }
+
+  getProfile() {
+    return this.http.post(`${this.url}v1/Pontos`, { headers: this.composeHeaders() });
+  }
 }
