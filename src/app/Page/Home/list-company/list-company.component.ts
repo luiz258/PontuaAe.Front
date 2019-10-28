@@ -6,7 +6,7 @@ import { ListaEmpresaSaldo } from 'src/app/Models/ListarEmpresaSaldo';
 
 
 @Component({
-  selector: 'app-listar-empresas',
+  selector: 'app-list-company',
   templateUrl: './list-company.component.html',
   styleUrls: ['./list-company.component.css']
 })

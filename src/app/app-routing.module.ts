@@ -16,12 +16,15 @@ import { AwardListComponent } from './Page/settings/program-loyalty/config-award
 import { PerfilComponent } from './Page/Account/perfil/perfil.component';
 import { AdminGuard } from './Guards/Admin.guard';
 
+// import { PontuarComponent } from './Page/Pointing/pontuar/pontuar.component';
+
 
 const appRoutes = [
 
   {
     path: '',
     component: MenuComponent,
+
     canActivate: [AuthService],
     children: [
 
@@ -30,8 +33,7 @@ const appRoutes = [
 
       { path: 'preCadastro', component: PreCadatroComponent, canActivate: [AdminGuard] },
       { path: 'perfil', component: PerfilComponent, canActivate: [AdminGuard] },
-      { path: 'pontuacao', component: PontuacaoComponent, canActivate: [AdminGuard] },
-
+      //  { path: 'pontuacao', component:  },
 
       {
         path: 'config', component: ProgramLoyaltyComponent,
