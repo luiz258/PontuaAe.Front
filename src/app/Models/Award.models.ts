@@ -1,5 +1,4 @@
-export class Awards
- {
+export class Award {
     public ID: number;
     public Nome: string;
     public descricao: string;

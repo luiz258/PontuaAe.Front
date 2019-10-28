@@ -1,14 +1,14 @@
-import { Users } from './../Models/Users.model';
+import { User } from '../Models/User.model';
 
 export class Security {
-    public static set(user: Users, token: string) {
+    public static set(user: User, token: string) {
         const data = JSON.stringify(user);
 
         localStorage.setItem('tokenPontuaae', token);
         localStorage.setItem('userPontuaae', btoa(data));
     }
 
-    public static setUser(user: Users) {
+    public static setUser(user: User) {
         const data = JSON.stringify(user);
 
         localStorage.setItem('userPontuaae', btoa(data));
@@ -20,7 +20,7 @@ export class Security {
     }
 
 
-    public static getUser(): Users {
+    public static getUser(): User {
         const data = localStorage.getItem('userPontuaae');
         if (data) {
             return JSON.parse(atob(data));

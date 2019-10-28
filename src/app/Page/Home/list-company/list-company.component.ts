@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Empresa } from 'src/app/Models/Empresa.models';
+import { Empresa } from 'src/app/Models/Company.models';
 import { Observable } from 'rxjs';
 import { CustomerService } from 'src/app/Service/Customer.service';
 import { ListaEmpresaSaldo } from 'src/app/Models/ListarEmpresaSaldo';
