@@ -7,7 +7,6 @@ import { PreCadatroComponent } from './Page/AccountCliente/pre-cadatro/pre-cadat
 import { CardgroupComponent } from './Page/Home/cardgroup/cardgroup.component';
 import { RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
-import { PontuacaoComponent } from './Page/ProgramaFidelidade/pontuacao/pontuacao.component';
 import { LoginClienteComponent } from './Page/AccountCliente/login-cliente/login-cliente.component';
 import { RegisterCustomerComponent } from './Page/AccountCliente/cadastrar-cliente/register-customer.component';
 import { ListCompanyComponent } from './Page/Home/list-company/list-company.component';

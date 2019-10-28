@@ -31,7 +31,7 @@ import { ProgramLoyaltyComponent } from './Page/settings/program-loyalty/program
 import { CustomerService } from './Service/Customer.service';
 import { ClientGuard } from './Guards/client.guard';
 import { AdminGuard } from './Guards/Admin.guard';
-
+import { ProgramLoyaltyModule } from '../app/Page/settings/program-loyalty/program-loyalty.module';
 
 
 export let options: Partial<IConfig> | (() => Partial<IConfig>);
@@ -58,7 +58,7 @@ export let options: Partial<IConfig> | (() => Partial<IConfig>);
     AwardListComponent,
     ListProgramComponent,
 
-    ProgramLoyaltyComponent 
+    ProgramLoyaltyComponent
   ],
 
   imports: [
@@ -68,7 +68,7 @@ export let options: Partial<IConfig> | (() => Partial<IConfig>);
     MatDialogModule,
     BrowserAnimationsModule,
     FormsModule,
-
+    ProgramLoyaltyModule,
     BrowserModule,
     ReactiveFormsModule,
     HttpClientModule,

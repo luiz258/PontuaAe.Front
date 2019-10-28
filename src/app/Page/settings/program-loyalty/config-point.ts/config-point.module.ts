@@ -11,14 +11,14 @@ import { AppRoutingModule } from 'src/app/app-routing.module';
 
 @NgModule({
   declarations: [
-   ListProgramComponent,
-   PointEditComponent,
-   PointDeleteComponent,
-   PointCreateComponent,
-   
+    ListProgramComponent,
+    PointEditComponent,
+    PointDeleteComponent,
+    PointCreateComponent,
+
   ],
   imports: [
-    CommonModule,    
+    CommonModule,
     BrowserModule,
     FormsModule,
     RouterModule,
