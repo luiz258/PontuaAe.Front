@@ -31,6 +31,12 @@ import { AdminGuard } from './Guards/Admin.guard';
 import { ResgatarComponent } from './Page/Pointing/resgatar/resgatar.component';
 import { PontuarComponent } from './Page/Pointing/pontuar/pontuar.component';
 import { PerfilComponent } from './Page/Account/perfil/perfil.component';
+import { AwardCreateComponent } from './Page/settings/program-loyalty/config-awards/award-create/award-create.component';
+import { PointService } from './Service/Point.service';
+import { CardPointComponent } from './Page/Home/card-point/card-point.component';
+import { ListClientPageComponent } from './Page/Client/list-client-page/list-client-page.component';
+
+
 
 
 
@@ -58,27 +64,34 @@ export let options: Partial<IConfig> | (() => Partial<IConfig>);
     AwardListComponent,
     ListProgramComponent,
     PerfilComponent,
-    ProgramLoyaltyComponent 
+    ProgramLoyaltyComponent,
+    AwardCreateComponent,
+    CardPointComponent,
+    ListClientPageComponent
   ],
 
   imports: [
 
-    BrowserModule,
-    MatButtonModule,
-    MatDialogModule,
-    BrowserAnimationsModule,
-    FormsModule,
-
-    BrowserModule,
     ReactiveFormsModule,
+    MatButtonModule,
+    MatDialogModule,     
+    BrowserModule,
     HttpClientModule,
     AppRoutingModule,
     BrowserAnimationsModule, // required animations module
     ToastrModule.forRoot(), // ToastrModule added
     NgxMaskModule.forRoot(options),
+    ReactiveFormsModule
   ],
   exports: [],
   providers: [AutenticacaoService, AuthService, ClientGuard, AdminGuard],
-  bootstrap: [AppComponent]
+  
+
+  bootstrap: [AppComponent],
+  entryComponents: [
+    PointCreateComponent, 
+    AwardCreateComponent,
+  ],
+
 })
 export class AppModule { }

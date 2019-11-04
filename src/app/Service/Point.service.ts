@@ -4,17 +4,15 @@ import { Security } from '../Utils/Security-util';
 import { Premios } from '../Models/Premios.models';
 import { tap } from 'rxjs/operators';
 
-@Injectable({
-    providedIn: 'root'
-})
+@Injectable({ providedIn: 'root'})
+
 export class PointService {
 
     public url = 'https://localhost:44311/';
     public id: number;
     constructor(
         private http: HttpClient
-    ) {
-    }
+    ) { }
 
     public composeHeaders() {
         const tokem = localStorage.getItem('tokenPontuaae');
@@ -30,6 +28,7 @@ export class PointService {
         return this.http.post(`${this.url}v1/Pontos`, data, { headers: this.composeHeaders() });
 
     }
+
     ResgatarPontos(data: any) {
 
         return this.http.post(`${this.url}v1/ResgatarPontos`, data, { headers: this.composeHeaders() });

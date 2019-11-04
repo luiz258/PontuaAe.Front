@@ -1,9 +1,8 @@
 export class Award {
     public ID: number;
     public Nome: string;
-    public descricao: string;
-    public quantidade: number;
-    public Validade: number;
-    public img: string;
-    public PontosNessesario: number;
+    public Descricao: string;
+    public Quantidade: number;
+    public Img: string;
+    public PontosNecessario: number;
 }

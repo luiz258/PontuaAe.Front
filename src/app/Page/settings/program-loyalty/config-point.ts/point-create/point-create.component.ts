@@ -3,66 +3,111 @@ import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { RulePointService } from 'src/app/Service/RulePoint.service';
-import { FormGroup, FormBuilder } from '@angular/forms';
+import { FormBuilder, Validators, FormGroup } from '@angular/forms';
+import { Security } from 'src/app/Utils/Security-util';
 
 @Component({
   selector: 'app-point-create',
   templateUrl: './point-create.component.html',
   styleUrls: ['./point-create.component.css']
+
 })
+
 export class PointCreateComponent implements OnInit {
-public form: FormGroup;
-public busy = false;
+  public form: FormGroup;
+  public busy = false;
+  //public description;
+
   constructor(
-    @Inject(MAT_DIALOG_DATA) public data,
-    public dialogRef: MatDialogRef<PointCreateComponent>,
+    @Inject(MAT_DIALOG_DATA) public metadata: any,
+    private dialogRef: MatDialogRef<PointCreateComponent>,
     private router: Router,
     private service: RulePointService,
     private fb: FormBuilder,
-    private toastr: ToastrService
-    ) { 
-       this.form = this.fb.group({});
-    }
+    private toastr: ToastrService,
+  ) {
+    this.form = this.fb.group({
 
-    ngOnInit() {
-      this.busy = true;
-      this
-        .service
-        .ListProgramLoyalty()
-        .subscribe(
-          (data: any) => {
-            this.busy = false;
-            this.form.controls['name'].setValue(data.name);
-            this.form.controls['document'].setValue(data.document);
-            this.form.controls['email'].setValue(data.email);
-          },
-          (err) => {
-            console.log(err);
-            this.busy = false;
-          }
-        );
-    }
-  
+      Nome: ['', Validators.compose([
+        Validators.minLength(3),
+        Validators.maxLength(80),
+        Validators.required
+      ])],
 
-  submit() {
+      Descricao: ['', Validators.compose([Validators.maxLength(15), Validators.required])],
+      Valor: ['', [Validators.required]],
+      Ponto: ['', [Validators.required]],
+      Validacao: ['', [Validators.required]],
+
+    });
+  }
+  ngOnInit() {
+
+    const IdUser = parseInt(Security.getUser().id);
+
+
     this.busy = true;
     this
       .service
-      .createRule(this.form.value)
+      .getByIdProgramLoyalty(this.metadata.IdRule, IdUser)
       .subscribe(
         (data: any) => {
           this.busy = false;
-          this.toastr.success(data.message, 'Adicionado com Sucesso');
-         // this.router.navigate(['/']);
-         this.dialogRef.close();
+          this.form.controls['Id'].setValue(data.Id);
+          this.form.controls['Nome'].setValue(data.Nome);
+          this.form.controls['Descricao'].setValue(data.Descricao);
+          this.form.controls['Valor'].setValue(data.Valor);
+          this.form.controls['Ponto'].setValue(data.Ponto);
+          this.form.controls['Validacao'].setValue(data.Validacao);
         },
         (err) => {
           console.log(err);
           this.busy = false;
-          this.dialogRef.close();
         }
       );
   }
+
+  submit() {
+    if (isNaN(this.metadata.Id)) {
+      this.service
+        .createRule(this.form.value)
+        .subscribe((data: any) => {
+          this.busy = false;
+          this.toastr.success("Salvo com sucesso");
+          this.dialogRef.close(); this.toastr.success(data.message, 'Salvo com Sucesso');
+          this.dialogRef.close();
+        },
+
+          (err) => {
+            console.log(err);
+            this.busy = false;
+            this.dialogRef.close();
+          }
+        );
+    } else {
+      this.busy = true;
+      this
+        .service
+        .updateProgramLoyalty(this.form.value)
+        .subscribe((data: any) => {
+          this.busy = false;
+          this.CloseDialog();
+          this.toastr.success(data.message, 'Salvo com sucesso');
+
+          //this.router.navigate(['/']);
+        }, (err) => {
+          this.busy = false;
+          console.log(err)
+          this.toastr.warning(err.data);
+        }
+        );
+    }
+  }
+
+  CloseDialog(): void {
+    this.dialogRef.close();
+  }
+
 
 }
 
