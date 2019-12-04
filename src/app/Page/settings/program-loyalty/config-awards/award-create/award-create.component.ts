@@ -2,7 +2,6 @@ import { Component, OnInit, Inject } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { Router } from '@angular/router';
-import { RulePointService } from 'src/app/Service/RulePoint.service';
 import { ToastrService } from 'ngx-toastr';
 import { AwardService } from 'src/app/Service/Award.service';
 import { Security } from 'src/app/Utils/Security-util';
@@ -35,14 +34,14 @@ export class AwardCreateComponent implements OnInit {
         Validators.required
       ])],
 
-      Descricao: ['', [Validators.required]],      
+      Descricao: ['', [Validators.required]],
       PontosNecessario: ['', [Validators.required]],
 
     });
   }
   ngOnInit() {
 
-  const IdUser = parseInt(Security.getUser().id);
+    const IdUser = parseInt(Security.getUser().id);
 
 
     this.busy = true;

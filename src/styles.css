@@ -117,8 +117,8 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 .uk-card-default{
   -webkit-box-shadow: 2px 1px 5px 0px rgba(194, 194, 194, 0.733);
   -moz-box-shadow: 1px 1px 5px 0px rgba(214, 207, 207, 0.726);
-  box-shadow: 1px 1px 4px 0px rgba(145, 138, 138, 0.514);
-  border-radius: 7px;
+  box-shadow: 1px 1px 4px 0px rgba(211, 211, 211, 0.514);
+  border-radius: 4px;
  
 }
 

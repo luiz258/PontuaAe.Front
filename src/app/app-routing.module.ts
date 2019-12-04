@@ -17,6 +17,7 @@ import { PerfilComponent } from './Page/Account/perfil/perfil.component';
 import { AdminGuard } from './Guards/Admin.guard';
 import { PontuarComponent } from './Page/Pointing/pontuar/pontuar.component';
 import { ListClientPageComponent } from './Page/Client/list-client-page/list-client-page.component';
+import { CardPointComponent } from './Page/Home/card-point/card-point.component';
 
 
 
@@ -30,6 +31,7 @@ const routes:  Routes = [
 
       { path: '', component: CardgroupComponent },
       { path: 'home', component: CardgroupComponent },
+      
 
       { path: 'preCadastro', component: PreCadatroComponent },
       { path: 'perfil', component: PerfilComponent },
