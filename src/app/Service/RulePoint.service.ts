@@ -6,9 +6,11 @@ import { Point } from '../Models/Points.models';
 
 
 
+
 @Injectable({
   providedIn: 'root'
 })
+
 export class RulePointService {
 
 

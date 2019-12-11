@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
+import { RulePointService } from 'src/app/Service/RulePoint.service';
 
 @Component({
   selector: 'app-point-delete',
@@ -7,9 +9,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PointDeleteComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    @Inject(MAT_DIALOG_DATA)
+    public dialogRef: MatDialogRef<PointDeleteComponent>,
+    private service: RulePointService,
+  ) { }
 
   ngOnInit() {
   }
+
+ 
+ 
+
 
 }

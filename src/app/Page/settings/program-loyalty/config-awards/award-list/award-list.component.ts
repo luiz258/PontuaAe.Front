@@ -1,23 +1,56 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Premios } from 'src/app/Models/Premios.models';
-import { PremiosService } from 'src/app/Service/Premios.service';
+import { MatDialogConfig, MatDialog } from '@angular/material';
+import { AwardCreateComponent } from '../award-create/award-create.component';
+import { Award } from 'src/app/Models/Award.models';
+import { AwardService } from 'src/app/Service/Award.service';
+import { Security } from 'src/app/Utils/Security-util';
 
 @Component({
   selector: 'app-award-list',
   templateUrl: './award-list.component.html',
   styleUrls: ['./award-list.component.css'],
-  providers:[PremiosService]
+
 })
 export class AwardListComponent implements OnInit {
-  public premio$: Observable<Premios[]>;
-
-  public permios: Premios[] = [];
-   constructor(public service:PremiosService) { }
+  public Award$: Observable<Award[]> = null;
+   constructor(private service:AwardService, private dialog: MatDialog) { }
  
    ngOnInit() {
-     //this.premio$ = this.service.GetPremios();
+
+    const Id = parseInt(Security.getUser().id);
+    this.Award$ = this.service.getListAward(Id);
+    
+  }
+
+ openDialogCreate(){
+  const dialogConfig = new MatDialogConfig();
+  dialogConfig.autoFocus = true;
+  dialogConfig.disableClose = true;
+  dialogConfig.width = "400px";
+  dialogConfig.height = "400px";
+  this.dialog.open(AwardCreateComponent, dialogConfig)
+  .afterClosed().subscribe(result => {
+    console.log('The dialog was closed');
+    console.log(result)});
  }
+
+ openDialogEdit(IdRule: number){
+  const dialogConfig = new MatDialogConfig();
+  dialogConfig.autoFocus = true;
+  dialogConfig.disableClose = true;
+  dialogConfig.width = "30%";
+
+  //const programLoyalty = this.service.getListProgramLoyalty(Id);
+
+  dialogConfig.data = {IdRule};
+  this.dialog.open(AwardCreateComponent, dialogConfig)
+  .afterClosed().subscribe(result => {
+    console.log('The dialog was closed');
+    console.log(result)});
+
+}
+
  
  }
  

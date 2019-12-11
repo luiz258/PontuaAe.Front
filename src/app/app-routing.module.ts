@@ -5,7 +5,7 @@ import { LoginComponent } from './Page/Account/login/login.component';
 import { MenuComponent } from './Page/Shared/Menu.component';
 import { PreCadatroComponent } from './Page/AccountCliente/pre-cadatro/pre-cadatro.component';
 import { CardgroupComponent } from './Page/Home/cardgroup/cardgroup.component';
-import { RouterModule } from '@angular/router';
+import {Routes, RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
 import { LoginClienteComponent } from './Page/AccountCliente/login-cliente/login-cliente.component';
 import { RegisterCustomerComponent } from './Page/AccountCliente/cadastrar-cliente/register-customer.component';
@@ -19,7 +19,8 @@ import { AdminGuard } from './Guards/Admin.guard';
 // import { PontuarComponent } from './Page/Pointing/pontuar/pontuar.component';
 
 
-const appRoutes = [
+
+const routes:  Routes = [
 
   {
     path: '',
@@ -39,9 +40,10 @@ const appRoutes = [
         path: 'config', component: ProgramLoyaltyComponent,
         canActivate: [AdminGuard],
         children: [
-
           { path: 'listPoint', component: ListProgramComponent },
           { path: 'listAward', component: AwardListComponent },
+         // { path: '', redirectTo: '/config', pathMatch: 'full' },
+         
         ]
       },
 
@@ -51,7 +53,6 @@ const appRoutes = [
 
   },
 
-
   { path: 'login', component: LoginComponent },
   { path: 'loginCliente', component: LoginClienteComponent },
   { path: 'cadastrar', component: CadastrarLoginComponent },
@@ -59,7 +60,7 @@ const appRoutes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(appRoutes)],
+  imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

@@ -170,7 +170,7 @@ export class PerfilComponent implements OnInit {
         }
       );
 
-  }
+    } 
 
   Submit() {
     this.carregando = true;

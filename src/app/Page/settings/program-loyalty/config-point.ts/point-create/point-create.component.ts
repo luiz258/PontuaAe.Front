@@ -3,19 +3,22 @@ import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { RulePointService } from 'src/app/Service/RulePoint.service';
-import { FormGroup, FormBuilder } from '@angular/forms';
+import { FormBuilder, Validators, FormGroup } from '@angular/forms';
+import { Security } from 'src/app/Utils/Security-util';
 
 @Component({
   selector: 'app-point-create',
   templateUrl: './point-create.component.html',
   styleUrls: ['./point-create.component.css']
+
 })
+
 export class PointCreateComponent implements OnInit {
   public form: FormGroup;
   public busy = false;
   constructor(
-    @Inject(MAT_DIALOG_DATA) public data,
-    public dialogRef: MatDialogRef<PointCreateComponent>,
+    @Inject(MAT_DIALOG_DATA) public metadata: any,
+    private dialogRef: MatDialogRef<PointCreateComponent>,
     private router: Router,
     private service: RulePointService,
     private fb: FormBuilder,
@@ -47,11 +50,10 @@ export class PointCreateComponent implements OnInit {
   }
 
 
-  submit() {
-    this.busy = true;
-    this
+    //this.busy = true;
+this
       .service
-      .createRule(this.form.value)
+      .getByIdProgramLoyalty(this.metadata.IdRule, IdUser)
       .subscribe(
         (data: any) => {
           this.busy = false;
@@ -62,10 +64,51 @@ export class PointCreateComponent implements OnInit {
         (err) => {
           console.log(err);
           this.busy = false;
-          this.dialogRef.close();
         }
       );
   }
+
+  submit() {
+    if (isNaN(this.metadata.Id)) {
+      this.service
+        .createRule(this.form.value)
+        .subscribe((data: any) => {
+          this.busy = false;
+          this.toastr.success("Salvo com sucesso");
+          this.dialogRef.close(); this.toastr.success(data.message, 'Salvo com Sucesso');
+          this.dialogRef.close();
+        },
+
+          (err) => {
+            console.log(err);
+            this.busy = false;
+            this.dialogRef.close();
+          }
+        );
+    } else {
+      this.busy = true;
+      this
+        .service
+        .updateProgramLoyalty(this.form.value)
+        .subscribe((data: any) => {
+          this.busy = false;
+          this.CloseDialog();
+          this.toastr.success(data.message, 'Salvo com sucesso');
+
+          //this.router.navigate(['/']);
+        }, (err) => {
+          this.busy = false;
+          console.log(err)
+          this.toastr.warning(err.data);
+        }
+        );
+    }
+  }
+
+  CloseDialog(): void {
+    this.dialogRef.close();
+  }
+
 
 }
 
